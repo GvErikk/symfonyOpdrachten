@@ -32,4 +32,68 @@ class ArtikelController extends Controller
 
         return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
     }
+
+    /**
+     * @Route("/inkoper/artikelen", name="alleartikelen")
+     */
+    public function alleArtikelen(Request $request){
+        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
+        $tekst = '';
+//        foreach ($artikelen as $artikel){
+//            $tekst .= '<a href="artikel/wijzig/'.$artikel->getArtikelnummer(). '"> '. $artikel->getArtikelnummer(). '</a> '.$artikel->getOmschrijving() . '<a href="artikel/verwijder/'.$artikel->getArtikelnummer() .'"> verwijder</a><br />';
+//
+//        }
+        //alle_artikellen_inkoper.html
+        return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
+    }
+
+    /**
+     * @Route("/inkoper/artikel/wijzig/{artikelnummer}", name="artikelwijzigen")
+     */
+    public function wijzigArtikel(Request $request, $artikelnummer) {
+        $bestaandartikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
+        $form = $this->createForm(ArtikelType::class, $bestaandartikel);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($bestaandartikel);
+            $em->flush();
+            return $this->redirect($this->generateurl("alleartikelen"));
+        }
+
+        return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
+    }
+
+    /**
+     * @Route("/inkoper/artikel/verwijder/{artikelnummer}", name="artikelverwijderen")
+     */
+    public function verijderArtikel($artikelnummer)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $adminentities = $em->getRepository('AppBundle:artikel')->find($artikelnummer);
+
+        $em->remove($adminentities);
+        $em->flush();
+
+        return $this->redirect($this->generateurl("alleartikelen"));
+    }
+
+    /**
+     * @Route("/inkoper/artikel/{artikelnummer}", name="artikel")
+     */
+    public function getArtikel($artikelnummer){
+        $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
+        $tekst = '';
+        $tekst .=  '<b>Artikelnummer: </b>'.$artikel->getArtikelnummer() .'<br />';
+        $tekst .=  '<b>Omschrijving: </b>'.$artikel->getOmschrijving() .'<br />';
+        $tekst .=  '<b>Technishe specificaties: </b>'.$artikel->getTechnisheSpecificaties() .'<br />';
+        $tekst .=  '<b>Magazijnlocatie: </b>'.$artikel->getMagazijnlocatie() .'<br />';
+        $tekst .=  '<b>Inkoopprijs: </b>'.$artikel->getInkoopprijs() .'<br />';
+        $tekst .=  '<b>VervangendArtikel: </b>'.$artikel->getVervangendArtikel() .'<br />';
+        $tekst .=  '<b>Vooraad: </b>'.$artikel->getVooraad() .'<br />';
+        $tekst .=  '<b>Bestelserie: </b>'.$artikel->getBestelserie() .'<br />';
+        return new Response($tekst);
+    }
+
 }

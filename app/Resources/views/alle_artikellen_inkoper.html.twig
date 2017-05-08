@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<br />
+    <b>Alle artikelen (inkoper)</b>
+    <br />
+    <br />
+    <a href="artikel/nieuw"><input type="button" value="nieuw"/></a>
+    <br />
+    {% for artikel in artikelen %}
+        <a href="artikel/wijzig/{{ artikel.artikelnummer }}">{{ artikel.artikelnummer }}</a> {{ artikel.omschrijving }} <a href="artikel/verwijder/{{ artikel.artikelnummer }}"> verwijder</a><br />
+        {#{{ dump(artikel) }}#}
+    {% endfor %}
+{% endblock %}
