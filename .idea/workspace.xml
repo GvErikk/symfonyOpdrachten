@@ -58,8 +58,8 @@
       <file leaf-file-name="form_nieuw_artikel_inkoper.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/form_nieuw_artikel_inkoper.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -409,12 +409,12 @@
       <workItem from="1493893449235" duration="1539000" />
       <workItem from="1494231308860" duration="1407000" />
       <workItem from="1494237470701" duration="34000" />
-      <workItem from="1494237879886" duration="4034000" />
+      <workItem from="1494237879886" duration="4536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39488000" />
+    <option name="totallyTimeSpent" value="39990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -845,8 +845,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/form_nieuw_artikel_inkoper.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
