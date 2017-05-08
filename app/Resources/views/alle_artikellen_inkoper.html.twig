@@ -7,7 +7,7 @@
     <a href="artikel/nieuw"><input type="button" value="nieuw"/></a>
     <br />
     {% for artikel in artikelen %}
-        <a href="artikel/wijzig/{{ artikel.artikelnummer }}">{{ artikel.artikelnummer }}</a> {{ artikel.omschrijving }} <a href="artikel/verwijder/{{ artikel.artikelnummer }}"> verwijder</a><br />
+        <a href="artikel/{{ artikel.artikelnummer }}">{{ artikel.artikelnummer }}</a> {{ artikel.omschrijving }} <a href="artikel/verwijder/{{ artikel.artikelnummer }}"> verwijder</a> <a href="artikel/wijzig/{{ artikel.artikelnummer }}"> wijzig</a><br />
         {#{{ dump(artikel) }}#}
     {% endfor %}
 {% endblock %}
