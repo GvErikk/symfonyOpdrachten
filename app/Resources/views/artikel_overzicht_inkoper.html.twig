@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<br />
+    <b>Artikel: {{ artikel.artikelnummer }}</b>
+    <br />
+    <a href="javascript:history.back()">Terug</a>
+    <br />
+    <br />
+    <br />
+    {#{{ dump(artikel) }}#}
+
+    <b>Artikelnummer: </b>{{ artikel.artikelnummer }}  <br />
+    <b>Omschrijving: </b>{{ artikel.omschrijving }}  <br />
+    <b>Technishe specificaties: </b>{{ artikel.technisheSpecificaties }}  <br />
+    <b>Magazijnlocatie: </b>{{ artikel.magazijnlocatie }}  <br />
+    <b>Inkoopprijs: </b>{{ artikel.inkoopprijs }}  <br />
+    <b>VervangendArtikel: </b>{{ artikel.vervangendArtikel }}  <br />
+    <b>Minimum vooraad: </b>{{ artikel.minimumVoorraad }}  <br />
+    <b>Vooraad: </b>{{ artikel.vooraad }}  <br />
+    <b>Bestelserie: </b>{{ artikel.bestelserie }}  <br />
+
+{% endblock %}

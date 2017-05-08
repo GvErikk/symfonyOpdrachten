@@ -84,16 +84,7 @@ class ArtikelController extends Controller
      */
     public function getArtikel($artikelnummer){
         $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
-        $tekst = '';
-        $tekst .=  '<b>Artikelnummer: </b>'.$artikel->getArtikelnummer() .'<br />';
-        $tekst .=  '<b>Omschrijving: </b>'.$artikel->getOmschrijving() .'<br />';
-        $tekst .=  '<b>Technishe specificaties: </b>'.$artikel->getTechnisheSpecificaties() .'<br />';
-        $tekst .=  '<b>Magazijnlocatie: </b>'.$artikel->getMagazijnlocatie() .'<br />';
-        $tekst .=  '<b>Inkoopprijs: </b>'.$artikel->getInkoopprijs() .'<br />';
-        $tekst .=  '<b>VervangendArtikel: </b>'.$artikel->getVervangendArtikel() .'<br />';
-        $tekst .=  '<b>Vooraad: </b>'.$artikel->getVooraad() .'<br />';
-        $tekst .=  '<b>Bestelserie: </b>'.$artikel->getBestelserie() .'<br />';
-        return new Response($tekst);
+        return new Response($this->render('artikel_overzicht_inkoper.html.twig', array('artikel' => $artikel)));
     }
 
 }

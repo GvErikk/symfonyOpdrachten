@@ -16,37 +16,38 @@ class ArtikelType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		//gebruiken wat je nodig hebt, de id hoeft er niet bij als deze auto increment is
-        $builder
-            ->add('artikelnummer', TextType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('omschrijving', TextType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('technishe_specificaties', TextType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('magazijnlocatie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('inkoopprijs', MoneyType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('vervangend_artikel', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('minimum_voorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('vooraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('bestelserie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-		//zie
-		//http://symfony.com/doc/current/forms.html#built-in-field-types
-		//voor meer typen invoer
+        //todo: gebruikersrollen
+        if (strpos($_SERVER['REQUEST_URI'], 'inkoper') != true) {
+            $builder
+                ->add('magazijnlocatie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+        }
+        else{
+            $builder
+                ->add('artikelnummer', TextType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+            $builder
+                ->add('omschrijving', TextType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+            $builder
+                ->add('technishe_specificaties', TextType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+            $builder
+                ->add('inkoopprijs', MoneyType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+            $builder
+                ->add('vervangend_artikel', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+            $builder
+                ->add('minimum_voorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+            $builder
+                ->add('vooraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+            $builder
+                ->add('bestelserie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ;
+        }
     }
 	
 	public function configureOptions(OptionsResolver $resolver)
