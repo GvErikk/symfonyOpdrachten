@@ -13,7 +13,7 @@ class MijnEersteController extends Controller
          * @Route("/hallo/wereld", name="hallo_wereld")
      */
     public function halloWereld() {
-        return new Response("Hallo wereld ik ben een Symfony applicatie!");
+        return new Response("Hallo wereld ik ben een HOMO");
     }
 
     /**
