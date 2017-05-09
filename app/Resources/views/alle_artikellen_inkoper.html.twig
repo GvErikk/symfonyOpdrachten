@@ -1,13 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <br />
-    <b>Alle artikelen (inkoper)</b>
-    <br />
-    <br />
-    <a href="artikel/nieuw"><input type="button" value="nieuw"/></a>
-    <br />
-    {% for artikel in artikelen %}
-        <a href="artikel/{{ artikel.artikelnummer }}">{{ artikel.artikelnummer }}</a> {{ artikel.omschrijving }} <a href="artikel/verwijder/{{ artikel.artikelnummer }}"> verwijder</a> <a href="artikel/wijzig/{{ artikel.artikelnummer }}"> wijzig</a><br />
-        {#{{ dump(artikel) }}#}
-    {% endfor %}
+    <div class="container">
+        <h2>Alle artikelen</h2>
+        <p>Overzicht van alle artikelen voor de inkoper. Klik een artikel aan om te wijzigen.</p>
+        {#<input type="text" class="form-control" id="usr" placeholder="Artikelnummer">#}
+        <button type="button" class="btn btn-success" onclick="window.document.location='artikel/nieuw';">Nieuw</button>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Artikelnummer</th>
+                    <th>Magazijnlocatie</th>
+                    <th>Inkoopprijs</th>
+                    <th>Vooraad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for artikel in artikelen %}
+                    <tr onclick="window.document.location='artikel/{{ artikel.artikelnummer }}';">
+                        <td>{{ artikel.artikelnummer }}</td>
+                        <td>{{ artikel.magazijnlocatie }}</td>
+                        <td>{{ artikel.inkoopprijs }}</td>
+                        <td>{{ artikel.vooraad }}</td>
+
+                    </tr>
+                    {#{{ dump(artikel) }}#}
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
 {% endblock %}

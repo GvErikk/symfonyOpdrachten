@@ -27,7 +27,7 @@ class ArtikelController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($nieuwproduct);
             $em->flush();
-            return $this->redirect($this->generateurl("nieuwartikel"));
+            return $this->redirect($this->generateurl("alleartikelen"));
         }
 
         return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
