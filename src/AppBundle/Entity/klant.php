@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+//test
 
 /**
  * klant
@@ -199,4 +200,3 @@ class klant
         return $this->email;
     }
 }
-
