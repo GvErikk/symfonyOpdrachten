@@ -57,7 +57,7 @@ class ArtikelController extends Controller
 //
 //        }
         //alle_artikellen_inkoper.html
-        return new Response($this->render('alle_artikellen_magazijnmeester.html.twig', array('artikelen' => $artikelen)));
+        return new Response($this->render('alle_artikelen_magazijnmeester.html.twig', array('artikelen' => $artikelen)));
     }
 
     public function zoekArtikelen($artikelnummer){
@@ -104,6 +104,24 @@ class ArtikelController extends Controller
     public function getArtikel($artikelnummer){
         $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
         return new Response($this->render('artikel_overzicht_inkoper.html.twig', array('artikel' => $artikel)));
+    }
+
+    /**
+     * @Route("/magazijnmeester/artikel/wijzig/{artikelnummer}", name="artikelwijzigen")
+     */
+    public function wijzigmagazijnArtikel(Request $request, $artikelnummer) {
+        $bestaandartikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
+        $form = $this->createForm(ArtikelType::class, $bestaandartikel);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($bestaandartikel);
+            $em->flush();
+            return $this->redirect($this->generateurl("alleartikelen"));
+        }
+
+        return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
     }
 
 }
