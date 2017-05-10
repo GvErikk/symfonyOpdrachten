@@ -7,7 +7,7 @@
     <br />
     <br />
     <br />
-    {#{{ dump(artikel) }}#}
+    {{ dump(artikel) }}
 
     <div class="container">
         <h2>Artikel: {{ artikel.artikelnummer }}</h2>
@@ -28,5 +28,6 @@
 
         {#<a href="artikel/verwijder/{{ artikel.artikelnummer }}"> verwijder</a> <a href="artikel/wijzig/{{ artikel.artikelnummer }}"> wijzig</a><br />#}
     </div>
+
 
 {% endblock %}
