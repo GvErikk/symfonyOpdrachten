@@ -4,9 +4,16 @@
     <div class="container">
         <h2>Alle artikelen</h2>
         <p>Overzicht van alle artikelen voor de inkoper. Klik een artikel aan om te wijzigen.</p>
-        {#<input type="text" class="form-control" id="usr" placeholder="Artikelnummer">#}
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" id="search-field">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
         <button type="button" class="btn btn-success" onclick="window.document.location='artikel/nieuw';">Nieuw</button>
-        <table class="table table-hover">
+        <table id="artikelen" class="table table-hover">
             <thead>
                 <tr>
                     <th>Artikelnummer</th>

@@ -7,6 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;;
+
 use AppBundle\Entity\artikel;
 use AppBundle\Form\Type\ArtikelType;
 
@@ -37,21 +42,12 @@ class ArtikelController extends Controller
      * @Route("/inkoper/artikelen", name="alleartikelen")
      */
     public function alleArtikelen(Request $request){
+        //alle artikelen omhalen
         $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
-        $tekst = '';
-//        foreach ($artikelen as $artikel){
-//            $tekst .= '<a href="artikel/wijzig/'.$artikel->getArtikelnummer(). '"> '. $artikel->getArtikelnummer(). '</a> '.$artikel->getOmschrijving() . '<a href="artikel/verwijder/'.$artikel->getArtikelnummer() .'"> verwijder</a><br />';
-//
-//        }
-        //alle_artikellen_inkoper.html
+        //wegschrijven naar html bestand met de artikelen variable
         return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
     }
 
-    public function zoekArtikelen($artikelnummer){
-        $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
-
-        return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikel)));
-    }
 
     /**
      * @Route("/inkoper/artikel/wijzig/{artikelnummer}", name="artikelwijzigen")
@@ -91,6 +87,33 @@ class ArtikelController extends Controller
     public function getArtikel($artikelnummer){
         $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
         return new Response($this->render('artikel_overzicht_inkoper.html.twig', array('artikel' => $artikel)));
+    }
+
+    /**
+     * @Route("/inkoper/zoek", name="zoekArtikel")
+     */
+    public function liveSearchAction(Request $request)
+    {
+        //ophalen post data van ajax call
+        $string = $_POST['searchText'];
+        //maken select statement om alle artikelnummers op te halen
+        $em = $this->getDoctrine()->getManager();
+        $RAW_QUERY = "SELECT * FROM artikel WHERE artikelnummer LIKE '".$string."%'";
+        //query uitvoeren
+        $statement = $em->getConnection()->prepare($RAW_QUERY);
+        $statement->execute();
+        $result = $statement->fetchAll();
+
+        //omzeten van data naar jason formaat
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $jsonContent = $serializer->serialize($result, 'json');
+        $response = new Response($jsonContent);
+
+        //terug sturen van data
+        return $response;
     }
 
 }
