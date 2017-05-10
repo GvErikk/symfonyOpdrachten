@@ -34,7 +34,6 @@ class ArtikelController extends Controller
             $em->flush();
             return $this->redirect($this->generateurl("alleartikelen"));
         }
-
         return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
     }
 
@@ -47,20 +46,6 @@ class ArtikelController extends Controller
         //wegschrijven naar html bestand met de artikelen variable
         return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
     }
-    /**
-     * @Route("/magazijnmeester/artikelen", name="alleartikelen")
-     */
-    public function magazijnArtikelen(Request $request){
-        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
-        $tekst = '';
-//        foreach ($artikelen as $artikel){
-//            $tekst .= '<a href="artikel/wijzig/'.$artikel->getArtikelnummer(). '"> '. $artikel->getArtikelnummer(). '</a> '.$artikel->getOmschrijving() . '<a href="artikel/verwijder/'.$artikel->getArtikelnummer() .'"> verwijder</a><br />';
-//
-//        }
-        //alle_artikellen_inkoper.html
-        return new Response($this->render('alle_artikelen_magazijnmeester.html.twig', array('artikelen' => $artikelen)));
-    }
-
 
     /**
      * @Route("/inkoper/artikel/wijzig/{artikelnummer}", name="artikelwijzigen")
@@ -103,7 +88,6 @@ class ArtikelController extends Controller
     }
 
     /**
-<<<<<<< HEAD
      * @Route("/inkoper/zoek", name="zoekArtikel")
      */
     public function liveSearchAction(Request $request)
@@ -128,23 +112,6 @@ class ArtikelController extends Controller
 
         //terug sturen van data
         return $response;
-=======
-     * @Route("/magazijnmeester/artikel/wijzig/{artikelnummer}", name="artikelwijzigen")
-     */
-    public function wijzigmagazijnArtikel(Request $request, $artikelnummer) {
-        $bestaandartikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
-        $form = $this->createForm(ArtikelType::class, $bestaandartikel);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($bestaandartikel);
-            $em->flush();
-            return $this->redirect($this->generateurl("alleartikelen"));
-        }
-
-        return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
->>>>>>> 7406c2397035942952f117b20742e7759da2a7d6
     }
 
 }
