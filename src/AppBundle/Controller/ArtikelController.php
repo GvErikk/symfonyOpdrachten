@@ -47,6 +47,12 @@ class ArtikelController extends Controller
         return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
     }
 
+    public function zoekArtikelen($artikelnummer){
+        $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
+
+        return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikel)));
+    }
+
     /**
      * @Route("/inkoper/artikel/wijzig/{artikelnummer}", name="artikelwijzigen")
      */
