@@ -46,6 +46,19 @@ class ArtikelController extends Controller
         //alle_artikellen_inkoper.html
         return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
     }
+    /**
+     * @Route("/magazijnmeester/artikelen", name="alleartikelen")
+     */
+    public function magazijnArtikelen(Request $request){
+        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
+        $tekst = '';
+//        foreach ($artikelen as $artikel){
+//            $tekst .= '<a href="artikel/wijzig/'.$artikel->getArtikelnummer(). '"> '. $artikel->getArtikelnummer(). '</a> '.$artikel->getOmschrijving() . '<a href="artikel/verwijder/'.$artikel->getArtikelnummer() .'"> verwijder</a><br />';
+//
+//        }
+        //alle_artikellen_inkoper.html
+        return new Response($this->render('alle_artikellen_magazijnmeester.html.twig', array('artikelen' => $artikelen)));
+    }
 
     public function zoekArtikelen($artikelnummer){
         $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
