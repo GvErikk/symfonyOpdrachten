@@ -12,3 +12,5 @@
 !var/SymfonyRequirements.php
 /web/bundles/
 /web/js/search.js
+
+web/js/search.js
