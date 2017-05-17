@@ -1,0 +1,40 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<br />
+    <div id="wrapper">
+        {% include 'blocks/header.html.twig' %}
+        {% include 'blocks/menuArtikelen.html.twig' %}
+        <div class="content"><br />
+            Welkom Inkoper!<br />
+            Via deze omgeving is het mogelijk om allerlei handelingen uit te voeren met betrekking tot het magazijn. <br />
+            <div class="row">
+                <div style="margin: 20px;"><input type="text" class="form-control" id="search-field" placeholder="Artikelnummer"></div>
+            </div>
+            <table id="artikelen" class="table table-hover" style="margin: 10px;">
+                <thead>
+                <tr>
+                    <th>Artikelnummer</th>
+                    <th>Magazijnlocatie</th>
+                    <th>Inkoopprijs</th>
+                    <th>Voorraad</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for artikel in artikelen %}
+                    <tr onclick="window.document.location='artikel/{{ artikel.artikelnummer }}';">
+                        <td>{{ artikel.artikelnummer }}</td>
+                        <td>{{ artikel.magazijnlocatie }}</td>
+                        <td>{{ artikel.inkoopprijs }}</td>
+                        <td>{{ artikel.vooraad }}</td>
+
+                    </tr>
+                    {#{{ dump(artikel) }}#}
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% include 'blocks/footer.html.twig' %}
+    </div>
+    </body>
+{% endblock %}

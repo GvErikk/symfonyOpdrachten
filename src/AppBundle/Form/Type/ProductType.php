@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 //EntiteitType vervangen door b.v. KlantType
 class ProductType extends AbstractType
@@ -27,7 +28,10 @@ class ProductType extends AbstractType
             ->add('merk', TextType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
-            ->add('ProductType', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ->add('producttype', EntityType::class, array(
+                'class' => 'AppBundle:producttype',
+                'choice_label' => 'beschrijving',
+            )) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
             ->add('inkoopprijs', MoneyType::class) //naam is b.v. een attribuut of variabele van klant

@@ -1,0 +1,21 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<div id="wrapper">
+    {% include 'blocks/header.html.twig' %}
+    {% include 'blocks/menuArtikelen.html.twig' %}
+    <div class="content"><br />
+        <h2>Artikel Toevoegen</h2>
+
+    </div>
+    <div class="container">
+        <form method="post" action="">
+            {{ form_widget(form) }}
+            <input class="btn btn-success" type="submit" value="Toevoegen">
+            <button type="button" class="btn btn-danger" onclick="javascript:history.back()">Annuleren</button>
+        </form>
+    </div>
+
+    {% include 'blocks/footer.html.twig' %}
+</div>
+{% endblock %}

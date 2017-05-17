@@ -1,0 +1,226 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #  0DC92C url(images/img01.jpg) repeat;
+	font-family: 'Arial';
+	font-size: 13px;
+	font-weight: 200;
+	color: #454545;
+}
+
+
+
+#wrapper {
+	width: 1200px;
+	margin: 0px auto;
+	padding: 0px 0px 0px 0px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px 5px rgba(0,0,0,.1);
+}
+
+.container {
+	width: 980px;
+	margin: 0px auto;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/** HEADER */
+
+#header {
+}
+
+
+#logo {
+
+	margin: 0px auto 30px auto;
+	color: #000000;
+    text-align: center;
+    margin-top: 10px;
+    
+}
+
+#login {
+text-align: right;
+margin-right: 50px;
+
+    
+}
+
+
+
+#menu {
+	overflow: hidden;
+	width: 1100px;
+	height: 70px;
+	margin: 0px 50px;
+	background: red;
+	font-size: 20px;
+	color: white;
+}
+
+.current_page_item {
+    font-size: bold;
+ 
+}
+
+#menu ul {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px;
+	list-style: none;
+	line-height: normal;
+	text-align: center;
+}
+
+#menu li {
+	display: inline-block;
+}
+
+#menu a {
+	display: block;
+	padding: 0px 40px 0px 40px;
+	line-height: 70px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 200;
+	color: #FFFFFF;
+	border: none;
+}
+
+
+}
+
+
+
+#menu .last {
+	border-right: none;
+}
+
+
+#page {
+}
+
+
+
+.content {
+text-align: center;
+}
+
+
+/* Footer */
+
+#footer {
+	overflow: hidden;
+	width: 1100px;
+	height: 100px;
+	margin: 0 auto;
+	border-top: 1px solid #CBCBCB;
+}
+
+#footer p {
+	margin: 0;
+	padding-top: 40px;
+	line-height: normal;
+	text-align: center;
+	color: #454545;
+}
+
+#footer a {
+	color: #2F2F2F;
+}
+
+
+#footer-content {
+	overflow: hidden;
+	width: 1100px;
+	padding: 50px;
+	background: #ECECEC;
+	text-shadow: 1px 1px 0px #FFFFFF;
+	color: #666666;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 80%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+	color: white;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+	padding: 2px 16px;
+	background-color: #FF0000;
+	color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+
+
+
+
+
+
+
+

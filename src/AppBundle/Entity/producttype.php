@@ -26,6 +26,12 @@ class producttype
      */
     private $beschrijving;
 
+    /**
+     * @ORM\OneToMany(targetEntity="product", mappedBy="producttype")
+     *
+     */
+    private $producten;
+
 
 
     /**
@@ -74,6 +80,11 @@ class producttype
     public function getBeschrijving()
     {
         return $this->beschrijving;
+    }
+
+    public function __construct()
+    {
+        $this->producten = new ArrayCollection();
     }
 }
 

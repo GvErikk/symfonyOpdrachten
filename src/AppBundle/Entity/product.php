@@ -36,7 +36,6 @@ class product
     /**
      * @var int
      *
-     * @ORM\Column(name="producttype", type="integer", nullable=true)
      * @ORM\ManyToOne(targetEntity="producttype", inversedBy="producten")
      * @ORM\JoinColumn(name="producttype", referencedColumnName="tid")
      */

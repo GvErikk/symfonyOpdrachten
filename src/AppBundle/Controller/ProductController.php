@@ -27,7 +27,7 @@ class ProductController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($nieuwproduct);
             $em->flush();
-            return $this->redirect($this->generateurl("nieuweklant"));
+            return $this->redirect($this->generateurl("nieuwproduct"));
         }
 
         return new Response($this->render('form.html.twig', array('form' => $form->createView())));

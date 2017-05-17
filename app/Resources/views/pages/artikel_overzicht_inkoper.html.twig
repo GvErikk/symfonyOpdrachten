@@ -1,0 +1,53 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<div id="wrapper">
+    {% include 'blocks/header.html.twig' %}
+    {% include 'blocks/menuArtikelen.html.twig' %}
+
+    <div class="content"><br />
+        <h2>Artikel: {{ artikel.artikelnummer }}</h2>
+        <p>Alle beschikbare informatie over het artikel</p>
+    </div>
+
+
+
+    <div class="container">
+
+        <b>Artikelnummer: </b>{{ artikel.artikelnummer }}  <br />
+        <b>Omschrijving: </b>{{ artikel.omschrijving }}  <br />
+        <b>Technische specificaties: </b>{{ artikel.technisheSpecificaties }}  <br />
+        <b>Magazijnlocatie: </b>{{ artikel.magazijnlocatie }}  <br />
+        <b>Inkoopprijs: </b>{{ artikel.inkoopprijs }}  <br />
+        <b>VervangendArtikel: </b>{{ artikel.vervangendArtikel }}  <br />
+        <b>Minimum voorraad: </b>{{ artikel.minimumVoorraad }}  <br />
+        <b>Voorraad: </b>{{ artikel.vooraad }}  <br />
+        <b>Bestelserie: </b>{{ artikel.bestelserie }}  <br />
+        <br />
+        <a href="{{ path('artikelwijzigen',{'artikelnummer':artikel.artikelnummer}) }}"> <button type="button" class="btn btn-primary">Wijzigen</button></a>
+        <button id="verwijderen" type="button" class="btn btn-danger">Verwijderen</button>
+    </div>
+    <!-- The Modal -->
+    <div id="modalVerwidjeren" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Verwijderen</h2>
+            </div>
+            <div class="modal-body">
+                <p>Weet u zeker dat u artikel met artikelnummer: {{ artikel.artikelnummer }} wilt verwijderen?</p>
+                <a href="{{ path('artikelverwijderen',{'artikelnummer':artikel.artikelnummer}) }}"><button id="verwijderen" type="button" class="btn btn-danger">Verwijderen</button></a>
+                <button type="button" class="btn btn-primary" id="annuleermodal">Anulleren</button>
+
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+    <br />
+    {% include 'blocks/footer.html.twig' %}
+</div>
+
+
+{% endblock %}

@@ -34,7 +34,7 @@ class ArtikelController extends Controller
             $em->flush();
             return $this->redirect($this->generateurl("alleartikelen"));
         }
-        return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
+        return new Response($this->render('pages/form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
     }
 
     /**
@@ -44,7 +44,7 @@ class ArtikelController extends Controller
         //alle artikelen omhalen
         $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
         //wegschrijven naar html bestand met de artikelen variable
-        return new Response($this->render('alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
+        return new Response($this->render('pages/alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
     }
 
     /**
@@ -62,13 +62,13 @@ class ArtikelController extends Controller
             return $this->redirect($this->generateurl("alleartikelen"));
         }
 
-        return new Response($this->render('form_nieuw_artikel_inkoper.html.twig', array('form' => $form->createView())));
+        return new Response($this->render('pages/form_wijzigen_artikel_inkoper.html.twig', array('form' => $form->createView())));
     }
 
     /**
      * @Route("/inkoper/artikel/verwijder/{artikelnummer}", name="artikelverwijderen")
      */
-    public function verijderArtikel($artikelnummer)
+    public function verwijderArtikel($artikelnummer)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $adminentities = $em->getRepository('AppBundle:artikel')->find($artikelnummer);
@@ -84,7 +84,7 @@ class ArtikelController extends Controller
      */
     public function getArtikel($artikelnummer){
         $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
-        return new Response($this->render('artikel_overzicht_inkoper.html.twig', array('artikel' => $artikel)));
+        return new Response($this->render('pages/artikel_overzicht_inkoper.html.twig', array('artikel' => $artikel)));
     }
 
     /**
