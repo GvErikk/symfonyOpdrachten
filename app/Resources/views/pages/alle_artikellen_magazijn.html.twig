@@ -1,11 +1,15 @@
 {% extends 'pages/base.html.twig' %}
 {% block body %}
-<br />
+    <br />
     <div id="wrapper">
         {% include 'blocks/header.html.twig' %}
-        {% include 'blocks/menuArtikelen.html.twig' %}
+        <div id="menu">
+            <ul>
+                <li class="current_page_item"><a href="{{ path('homepage') }}">Home</a></li>
+            </ul>
+        </div>
         <div class="content"><br />
-            Welkom Inkoper!<br />
+            Welkom magazijnmeester!<br />
             Via deze omgeving is het mogelijk om allerlei handelingen uit te voeren met betrekking tot het magazijn. <br />
             <div class="row">
                 <div style="margin: 20px;"><input type="text" class="form-control" id="search-field" placeholder="Artikelnummer"></div>
@@ -15,16 +19,14 @@
                 <tr>
                     <th>Artikelnummer</th>
                     <th>Magazijnlocatie</th>
-                    <th>Inkoopprijs</th>
                     <th>Voorraad</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for artikel in artikelen %}
-                    <tr onclick="window.document.location='artikel/{{ artikel.artikelnummer }}';">
+                    <tr onclick="window.document.location='{{ path('artikelMagazijn',{'artikelnummer':artikel.artikelnummer}) }}';">
                         <td>{{ artikel.artikelnummer }}</td>
                         <td>{{ artikel.magazijnlocatie }}</td>
-                        <td>{{ artikel.inkoopprijs }}</td>
                         <td>{{ artikel.vooraad }}</td>
 
                     </tr>

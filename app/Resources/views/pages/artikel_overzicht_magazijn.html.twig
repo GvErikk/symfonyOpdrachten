@@ -1,0 +1,37 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<div id="wrapper">
+    {% include 'blocks/header.html.twig' %}
+    <div id="menu">
+        <ul>
+            <li class="current_page_item"><a href="{{ path('homepage') }}">Home</a></li>
+        </ul>
+    </div>
+
+    <div class="content"><br />
+        <h2>Artikel: {{ artikel.artikelnummer }}</h2>
+        <p>Alle beschikbare informatie over het artikel</p>
+    </div>
+
+
+
+    <div class="container">
+
+        <b>Artikelnummer: </b>{{ artikel.artikelnummer }}  <br />
+        <b>Omschrijving: </b>{{ artikel.omschrijving }}  <br />
+        <b>Technische specificaties: </b>{{ artikel.technisheSpecificaties }}  <br />
+        <b>Magazijnlocatie: </b>{{ artikel.magazijnlocatie }}  <br />
+        <b>Inkoopprijs: </b>{{ artikel.inkoopprijs }}  <br />
+        <b>VervangendArtikel: </b>{{ artikel.vervangendArtikel }}  <br />
+        <b>Minimum voorraad: </b>{{ artikel.minimumVoorraad }}  <br />
+        <b>Voorraad: </b>{{ artikel.vooraad }}  <br />
+        <b>Bestelserie: </b>{{ artikel.bestelserie }}  <br />
+        <br />
+        <a href="{{ path('artikelwijzigen',{'artikelnummer':artikel.artikelnummer}) }}"> <button type="button" class="btn btn-primary">Wijzigen</button></a>
+        <br />
+    <br />
+    {% include 'blocks/footer.html.twig' %}
+</div>
+
+
+{% endblock %}

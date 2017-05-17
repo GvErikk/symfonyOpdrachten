@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * artikel
  *
  * @ORM\Table(name="artikel")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\artikelRepository")
+ * @UniqueEntity("artikelnummer",  message = "Dit artikelnummer bestaat al.")
  */
 class artikel
 {
@@ -45,6 +48,10 @@ class artikel
      * @var int
      *
      * @ORM\Column(name="inkoopprijs", type="integer")
+     * @Assert\GreaterThan(
+     *     value = 0,
+     *     message = "De inkoopprijs moet boven {{ compared_value }} zijn."
+     * )
      */
     private $inkoopprijs;
 
@@ -59,6 +66,11 @@ class artikel
      * @var int
      *
      * @ORM\Column(name="minimum_voorraad", type="integer")
+     * @Assert\GreaterThan(
+     *     value = 0,
+     *     message = "De voorraad moet boven {{ compared_value }} zijn."
+     * )
+     *
      */
     private $minimumVoorraad;
 
@@ -66,6 +78,11 @@ class artikel
      * @var int
      *
      * @ORM\Column(name="vooraad", type="integer")
+     * @Assert\GreaterThan(
+     *     value = 0,
+     *     message = "De voorraad moet boven {{ compared_value }} zijn."
+     * )
+     *
      */
     private $vooraad;
 
