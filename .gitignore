@@ -11,3 +11,4 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /web/bundles/
+/web/js/search.js
