@@ -48,7 +48,7 @@ class ArtikelTypeMagazijn extends AbstractType
             ));
         $builder
             ->add('vooraad', IntegerType::class, array(
-                'disabled'   => true,
+                'disabled'   => false,
             ));
         $builder
             ->add('bestelserie', IntegerType::class, array(

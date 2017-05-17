@@ -27,7 +27,7 @@
         <b>Voorraad: </b>{{ artikel.vooraad }}  <br />
         <b>Bestelserie: </b>{{ artikel.bestelserie }}  <br />
         <br />
-        <a href="{{ path('artikelwijzigen',{'artikelnummer':artikel.artikelnummer}) }}"> <button type="button" class="btn btn-primary">Wijzigen</button></a>
+        <a href="{{ path('artikelwijzigenmagazijn',{'artikelnummer':artikel.artikelnummer}) }}"> <button type="button" class="btn btn-primary">Wijzigen</button></a>
         <br />
     <br />
     {% include 'blocks/footer.html.twig' %}
