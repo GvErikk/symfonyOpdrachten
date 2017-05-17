@@ -18,7 +18,7 @@ class ArtikelType extends AbstractType
     {
         //todo: gebruikersrollen
         $builder
-            ->add('artikelnummer', TextType::class) //naam is b.v. een attribuut of variabele van klant
+            ->add('artikelnummer', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
             ->add('omschrijving', TextType::class) //naam is b.v. een attribuut of variabele van klant
@@ -30,10 +30,10 @@ class ArtikelType extends AbstractType
             ->add('inkoopprijs', MoneyType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
-            ->add('vervangend_artikel', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ->add('vervangend_artikel', IntegerType::class, array('required' => false)) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
-            ->add('magazijnlocatie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ->add('magazijnlocatie', TextType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
             ->add('minimum_voorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
@@ -42,7 +42,7 @@ class ArtikelType extends AbstractType
             ->add('vooraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
-            ->add('bestelserie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ->add('bestelserie', IntegerType::class, array('required' => false)) //naam is b.v. een attribuut of variabele van klant
         ;
     }
 	

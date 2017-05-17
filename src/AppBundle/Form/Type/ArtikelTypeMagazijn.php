@@ -39,7 +39,7 @@ class ArtikelTypeMagazijn extends AbstractType
                 'disabled'   => true,
             ));
         $builder
-            ->add('magazijnlocatie', IntegerType::class, array(
+            ->add('magazijnlocatie', TextType::class, array(
                 'disabled'   => false,
             ));
         $builder
