@@ -97,7 +97,7 @@ class ArtikelController extends Controller
         $string = $_POST['searchText'];
         //maken select statement om alle artikelnummers op te halen
         $em = $this->getDoctrine()->getManager();
-        $RAW_QUERY = "SELECT * FROM artikel WHERE artikelnummer LIKE '".$string."%'";
+        $RAW_QUERY = "SELECT * FROM artikel WHERE artikelnummer LIKE '%".$string."%'";
         //query uitvoeren
         $statement = $em->getConnection()->prepare($RAW_QUERY);
         $statement->execute();

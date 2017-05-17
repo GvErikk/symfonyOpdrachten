@@ -20,6 +20,10 @@ class artikel
      * @var string
      * @ORM\Id
      * @ORM\Column(name="artikelnummer", type="string", length=255, unique=true)
+     * @Assert\Length(
+     *     max="255",
+     *     maxMessage = "Het artikelnummer kan maximaal {{ limit }} tekens lang zijn"
+     * )
      */
     private $artikelnummer;
 
@@ -27,6 +31,10 @@ class artikel
      * @var string
      *
      * @ORM\Column(name="omschrijving", type="string", length=255)
+     * @Assert\Length(
+     *     max="1000",
+     *     maxMessage = "De omschrijving kan maximaal {{ limit }} tekens lang zijn"
+     * )
      */
     private $omschrijving;
 
@@ -34,6 +42,10 @@ class artikel
      * @var string
      *
      * @ORM\Column(name="technishe_specificaties", type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *     max="1000",
+     *     maxMessage = "De technische specificaties kunnen maximaal {{ limit }} tekens lang zijn"
+     * )
      */
     private $technisheSpecificaties;
 
@@ -44,6 +56,10 @@ class artikel
      * @Assert\Regex(
      *     value = "/^\d{2}\W{1}[a-zA-Z]{1}\d{2}$/",
      *     message = "Ongeldige magazijnlocatie."
+     * )
+     * @Assert\Length(
+     *     max="6",
+     *     maxMessage = "Ongeldige magazijnlocatie."
      * )
      */
     private $magazijnlocatie;

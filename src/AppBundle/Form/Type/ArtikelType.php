@@ -18,7 +18,7 @@ class ArtikelType extends AbstractType
     {
         //todo: gebruikersrollen
         $builder
-            ->add('artikelnummer', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ->add('artikelnummer', TextType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
             ->add('omschrijving', TextType::class) //naam is b.v. een attribuut of variabele van klant
