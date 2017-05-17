@@ -10,7 +10,7 @@ $( document ).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/web/app_dev.php/inkoper/zoek",
+            url: "/symfonyOpdrachten/web/app_dev.php/inkoper/zoek",
             dataType: "json",
             data: {searchText : $(this).val()},
             success : function(response)
