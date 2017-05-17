@@ -41,8 +41,10 @@ class artikel
      * @var string
      *
      * @ORM\Column(name="magazijnlocatie", type="string", length=30)
-     * @Assert\Regex("/^[0-26]\W{1}[a-zA-Z]{1}0[1-9]|1[0-0]$/")
-     * @Assert\Length(max="6")
+     * @Assert\Regex(
+     *     value = "/^\d{2}\W{1}[a-zA-Z]{1}\d{2}$/",
+     *     message = "Ongeldige magazijnlocatie."
+     * )
      */
     private $magazijnlocatie;
 
