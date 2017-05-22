@@ -113,6 +113,13 @@ class artikel
      */
     private $bestelserie;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="actief", type="integer")
+     */
+    private $actief;
+
 
     /**
      * Set artikelnummer
@@ -328,6 +335,31 @@ class artikel
     public function getBestelserie()
     {
         return $this->bestelserie;
+    }
+
+
+    /**
+     * Set bestelserie
+     *
+     * @param integer $actief
+     *
+     * @return artikel
+     */
+    public function setActief($actief)
+    {
+        $this->actief = $actief;
+
+        return $this;
+    }
+
+    /**
+     * Get actief
+     *
+     * @return int
+     */
+    public function getActief()
+    {
+        return $this->actief;
     }
 }
 

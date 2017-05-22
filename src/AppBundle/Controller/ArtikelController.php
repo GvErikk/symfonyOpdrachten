@@ -43,7 +43,7 @@ class ArtikelController extends Controller
      */
     public function alleArtikelen(Request $request){
         //alle artikelen omhalen
-        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
+        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
         //wegschrijven naar html bestand met de artikelen variable
         return new Response($this->render('pages/alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
     }
@@ -74,7 +74,7 @@ class ArtikelController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $adminentities = $em->getRepository('AppBundle:artikel')->find($artikelnummer);
 
-        $em->remove($adminentities);
+        $adminentities->setActief(0);
         $em->flush();
 
         return $this->redirect($this->generateurl("alleartikelen"));
@@ -115,15 +115,12 @@ class ArtikelController extends Controller
         return $response;
     }
 
-
-
-
     /**
      * @Route("/magazijn/artikelen", name="alleartikelenmazijn")
      */
     public function alleArtikelenMagazijn(Request $request){
         //alle artikelen omhalen
-        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
+        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
         //wegschrijven naar html bestand met de artikelen variable
         return new Response($this->render('pages/alle_artikellen_magazijn.html.twig', array('artikelen' => $artikelen)));
     }
@@ -154,6 +151,27 @@ class ArtikelController extends Controller
         return new Response($this->render('pages/form_wijzigen_artikel_inkoper.html.twig', array('form' => $form->createView())));
     }
 
+    /**
+     * @Route("/inkoper/artikelen/inactief", name="alleartikeleninactief")
+     */
+    public function alleArtikelenInactief(Request $request){
+        //alle artikelen omhalen
+        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 0 ));
+        //wegschrijven naar html bestand met de artikelen variable
+        return new Response($this->render('pages/alle_artikellen_inkoper.html.twig', array('artikelen' => $artikelen)));
+    }
 
+    /**
+     * @Route("/inkoper/artikel/actief/{artikelnummer}", name="artikelActief")
+     */
+    public function artikelActief($artikelnummer)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $adminentities = $em->getRepository('AppBundle:artikel')->find($artikelnummer);
 
+        $adminentities->setActief(1);
+        $em->flush();
+
+        return $this->redirect($this->generateurl("alleartikelen"));
+    }
 }
