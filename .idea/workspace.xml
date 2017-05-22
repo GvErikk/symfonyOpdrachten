@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6ebf9bf-e7c3-4cdb-8da6-ae8307eaf2ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inactief.html.twig" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inactief.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_bestellen.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/blocks/menuArtikelen.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blocks/menuArtikelen.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inkoper.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inkoper.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/pages/artikel_overzicht_inkoper.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/artikel_overzicht_inkoper.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/artikel.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/artikel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/search.js" afterPath="$PROJECT_DIR$/web/js/search.js" />
     </list>
     <ignored path="symfonyOpdrachten.iws" />
@@ -33,25 +30,36 @@
       <file leaf-file-name="ArtikelController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="164" column="76" selection-start-line="164" selection-start-column="63" selection-end-line="164" selection-end-column="76" />
+            <state relative-caret-position="353">
+              <caret line="178" column="78" selection-start-line="178" selection-start-column="54" selection-end-line="178" selection-end-column="78" />
               <folding>
                 <element signature="e#40#99#0#PHP" expanded="true" />
                 <element signature="e#474#503#0#PHP" expanded="true" />
-                <marker date="1495451203930" expanded="true" signature="3714:3776" ph="SELECT * FRO... artikel" />
+                <marker date="1495452621301" expanded="true" signature="3714:3776" ph="SELECT * FRO... artikel" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artikel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/artikel.php">
+      <file leaf-file-name="alle_artikellen_bestellen.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_bestellen.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="357" column="18" selection-start-line="357" selection-start-column="18" selection-end-line="357" selection-end-column="18" />
+            <state relative-caret-position="119">
+              <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
               <folding>
-                <element signature="e#36#68#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menuArtikelen.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/blocks/menuArtikelen.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,22 +67,21 @@
       <file leaf-file-name="alle_artikellen_inkoper.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inkoper.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-              <folding>
-                <marker date="1495450979822" expanded="true" signature="37:1650" ph="{% block body ...%}" />
-                <marker date="1495450979822" expanded="true" signature="1009:1502" ph="{% for artikel in artikelen ...%}" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artikel_overzicht_inkoper.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/artikel_overzicht_inkoper.html.twig">
+      <file leaf-file-name="artikel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/artikel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="29" column="134" selection-start-line="29" selection-start-column="134" selection-end-line="29" selection-end-column="134" />
-              <folding />
+            <state relative-caret-position="334">
+              <caret line="94" column="28" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="28" />
+              <folding>
+                <element signature="e#36#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,14 +142,15 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/ArtikelTypeMagazijn.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/ArtikelType.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/artikel.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/artikel_overzicht_magazijn.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_magazijn.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/blocks/menuArtikelen.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inkoper.html.twig" />
         <option value="$PROJECT_DIR$/web/js/search.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/artikel_overzicht_inkoper.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/artikel.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_bestellen.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/blocks/menuArtikelen.html.twig" />
       </list>
     </option>
   </component>
@@ -597,12 +605,12 @@
       <workItem from="1494793981640" duration="3351000" />
       <workItem from="1494931098620" duration="8681000" />
       <workItem from="1495008732239" duration="14794000" />
-      <workItem from="1495444461162" duration="2705000" />
+      <workItem from="1495444461162" duration="4359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110550000" />
+    <option name="totallyTimeSpent" value="112204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
@@ -959,22 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inactief.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/blocks/menuArtikelen.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -983,10 +975,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/artikel_overzicht_inkoper.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="29" column="134" selection-start-line="29" selection-start-column="134" selection-end-line="29" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/artikel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="357" column="18" selection-start-line="357" selection-start-column="18" selection-end-line="357" selection-end-column="18" />
+        <state relative-caret-position="334">
+          <caret line="94" column="28" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="28" />
           <folding>
             <element signature="e#36#68#0#PHP" expanded="true" />
           </folding>
@@ -995,31 +995,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_inkoper.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <marker date="1495450979822" expanded="true" signature="37:1650" ph="{% block body ...%}" />
-            <marker date="1495450979822" expanded="true" signature="1009:1502" ph="{% for artikel in artikelen ...%}" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="164" column="76" selection-start-line="164" selection-start-column="63" selection-end-line="164" selection-end-column="76" />
+        <state relative-caret-position="353">
+          <caret line="178" column="78" selection-start-line="178" selection-start-column="54" selection-end-line="178" selection-end-column="78" />
           <folding>
             <element signature="e#40#99#0#PHP" expanded="true" />
             <element signature="e#474#503#0#PHP" expanded="true" />
-            <marker date="1495451203930" expanded="true" signature="3714:3776" ph="SELECT * FRO... artikel" />
+            <marker date="1495452621301" expanded="true" signature="3714:3776" ph="SELECT * FRO... artikel" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/artikel_overzicht_inkoper.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_bestellen.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="29" column="134" selection-start-line="29" selection-start-column="134" selection-end-line="29" selection-end-column="134" />
+        <state relative-caret-position="119">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/blocks/menuArtikelen.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
           <folding />
         </state>
       </provider>

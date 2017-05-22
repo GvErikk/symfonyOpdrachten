@@ -174,4 +174,25 @@ class ArtikelController extends Controller
 
         return $this->redirect($this->generateurl("alleartikelen"));
     }
+
+    /**
+     * @Route("/inkoper/artikelen/tebestellen", name="alleartikelentebestellen")
+     */
+    public function alleArtikelenTeBestellen(Request $request){
+//        $em = $this->getDoctrine()->getManager();
+        //$artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('minimumVoorraad' <= 'vooraad' ));
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:artikel');
+
+        // createQueryBuilder() automatically selects FROM AppBundle:Product
+        // and aliases it to "p"
+        $query = $repository->createQueryBuilder('p')->where('p.minimumVoorraad > p.vooraad')->getQuery();
+
+        $artikelen = $query->getResult();
+
+//        $products = $query->getResult();
+        return new Response($this->render('pages/alle_artikellen_bestellen.html.twig', array('artikelen' => $artikelen)));
+    }
+
+
 }
