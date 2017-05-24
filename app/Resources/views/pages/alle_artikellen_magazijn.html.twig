@@ -3,11 +3,7 @@
     <br />
     <div id="wrapper">
         {% include 'blocks/header.html.twig' %}
-        <div id="menu">
-            <ul>
-                <li class="current_page_item"><a href="{{ path('homepage') }}">Home</a></li>
-            </ul>
-        </div>
+        {% include 'blocks/menuMagazijn.html.twig' %}
         <div class="content"><br />
             <b>Welkom magazijnmeester!</b><br />
             Via deze omgeving is het mogelijk om allerlei handelingen uit te voeren met betrekking tot het magazijn. U kunt producten opzoeken, de voorraad wijzigen en de locatie van producten wijzigen. <br />

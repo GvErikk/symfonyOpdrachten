@@ -14,6 +14,7 @@ use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;;
 
 use AppBundle\Entity\artikel;
 use AppBundle\Form\Type\ArtikelType;
+use AppBundle\Form\Type\ArtikelTypeWijzigen;
 use AppBundle\Form\Type\ArtikelTypeMagazijn;
 
 
@@ -53,7 +54,7 @@ class ArtikelController extends Controller
      */
     public function wijzigArtikel(Request $request, $artikelnummer) {
         $bestaandartikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
-        $form = $this->createForm(ArtikelType::class, $bestaandartikel);
+        $form = $this->createForm(ArtikelTypeWijzigen::class, $bestaandartikel);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -97,7 +98,7 @@ class ArtikelController extends Controller
         $string = $_POST['searchText'];
         //maken select statement om alle artikelnummers op te halen
         $em = $this->getDoctrine()->getManager();
-        $RAW_QUERY = "SELECT * FROM artikel WHERE artikelnummer LIKE '%".$string."%'";
+        $RAW_QUERY = "SELECT * FROM artikel WHERE artikelnummer LIKE '%".$string."%' OR omschrijving LIKE '%".$string."%'";
         //query uitvoeren
         $statement = $em->getConnection()->prepare($RAW_QUERY);
         $statement->execute();

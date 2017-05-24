@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 //EntiteitType vervangen door b.v. KlantType
-class ArtikelType extends AbstractType
+class ArtikelTypeWijzigen extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -34,7 +34,7 @@ class ArtikelType extends AbstractType
         ;
         $builder
             ->add('magazijnlocatie', TextType::class, array(
-                'disabled'   => false,
+                'disabled'   => true,
             ));
         $builder
             ->add('minimum_voorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant

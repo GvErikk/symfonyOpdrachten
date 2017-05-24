@@ -10,10 +10,11 @@
             <div class="row">
                 <div style="margin: 20px;"><input type="text" class="form-control" id="search-field" placeholder="Artikelnummer"></div>
             </div>
-            <table id="artikelen" class="table table-hover" style="margin: 10px;">
+            <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
                 <thead>
                 <tr>
                     <th>Artikelnummer</th>
+                    <th>Omschrijving</th>
                     <th>Magazijnlocatie</th>
                     <th>Inkoopprijs</th>
                     <th>Voorraad</th>
@@ -23,6 +24,7 @@
                 {% for artikel in artikelen %}
                     <tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';">
                         <td>{{ artikel.artikelnummer }}</td>
+                        <td>{{ artikel.omschrijving }}</td>
                         <td>{{ artikel.magazijnlocatie }}</td>
                         <td>{{ artikel.inkoopprijs }}</td>
                         <td>{{ artikel.vooraad }}</td>

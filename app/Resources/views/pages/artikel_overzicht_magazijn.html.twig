@@ -2,11 +2,7 @@
 {% block body %}
 <div id="wrapper">
     {% include 'blocks/header.html.twig' %}
-    <div id="menu">
-        <ul>
-            <li class="current_page_item"><a href="{{ path('homepage') }}">Home</a></li>
-        </ul>
-    </div>
+    {% include 'blocks/menuMagazijn.html.twig' %}
 
     <div class="content"><br />
         <h2>Artikel: {{ artikel.artikelnummer }}</h2>

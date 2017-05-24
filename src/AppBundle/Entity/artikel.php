@@ -120,6 +120,13 @@ class artikel
      */
     private $actief;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="kwaliteit", type="integer")
+     */
+    private $kwaliteit;
+
 
     /**
      * Set artikelnummer
@@ -360,6 +367,30 @@ class artikel
     public function getActief()
     {
         return $this->actief;
+    }
+
+    /**
+     * Set kwaliteit
+     *
+     * @param integer $kwaliteit
+     *
+     * @return artikel
+     */
+    public function setKwaliteit($kwaliteit)
+    {
+        $this->kwaliteit = $kwaliteit;
+
+        return $this;
+    }
+
+    /**
+     * Get kwaliteit
+     *
+     * @return int
+     */
+    public function getKwaliteit()
+    {
+        return $this->kwaliteit;
     }
 }
 

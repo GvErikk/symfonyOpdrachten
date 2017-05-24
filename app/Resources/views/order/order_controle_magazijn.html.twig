@@ -1,0 +1,59 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+    {% set counter = 0 %}
+<div id="wrapper">
+    {% include 'blocks/header.html.twig' %}
+    {% include 'blocks/menuMagazijn.html.twig' %}
+    <div class="content"><br />
+        <h2>Order: {{ order.bestelordernummer }}</h2>
+    </div>
+    <div class="container">
+        <form action="{{ path('controlevalidationbestelling',{'ordernummer':order.id}) }}" method="post">
+            <div style="float: left">
+                <p style="margin: 25px;">
+                    <b>Leverancier:</b> {{ order.leverancier }}<br />
+                    <b>Bestelordernumer:</b> {{  order.bestelordernummer }}<br />
+                    <b>Status:</b>Ontvangen<br />
+                    <b>Datum ontvangst:</b> <input type="text" name="datum" required="required" placeholder="dd/mm/yyyy" value="{{ "now"|date("d-m-Y") }}"><br />
+                </p>
+            </div>
+            <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
+                <thead>
+                <tr>
+                    <th>Artikelnummer</th>
+                    <th>Aantal besteld</th>
+                    <th>Aantal ontvangen</th>
+                    <th>Kwalitijd</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% set counter = 0 %}
+                    {% for orderdetail in orderdetails %}
+                        <tr>
+                            <td>{{ orderdetail.artikelnummer.artikelnummer }}</td>
+                            <td>{{ orderdetail.aantal   }}</td>
+                            <td><input name="aantal[{{ counter }}][{{ orderdetail.artikelnummer.artikelnummer }}]" type="number" value="{{ orderdetail.aantal   }}"/> </td>
+                            <td>
+                                <select name="kwalitijd[{{ counter }}][{{ orderdetail.artikelnummer.artikelnummer }}]">
+                                    <option value="1">Nieuw</option>
+                                    <option value="2">Gebruikt </option>
+                                    <option value="3">Reparatie nodig</option>
+                                    <option value="4">Onbruikbaar</option>
+                                </select>
+                            </td>
+                        </tr>
+                        {% set counter = counter + 1 %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div style="float: left; margin-left: 25px;">
+                <input type="submit" class="btn btn-success" value="Bevestigen"/>
+            </div>
+            <br />
+        </form>
+        <br />
+        <br />
+    </div>
+    {% include 'blocks/footer.html.twig' %}
+</div>
+{% endblock %}

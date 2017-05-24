@@ -1,0 +1,59 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<br />
+    <div id="wrapper">
+        {% include 'blocks/header.html.twig' %}
+        {% include 'blocks/menuMagazijn.html.twig' %}
+        <div class="content"><br />
+            <b>Alle orders</b><br />
+            Alle orders  dab.
+            <div class="row">
+                {#<div style="margin: 20px;"><input type="text" class="form-control" id="search-field" placeholder="Artikelnummer"></div>#}
+            </div>
+            <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
+                <thead>
+                <tr>
+                    <th>Bestelordernummer</th>
+                    <th>Leverancier</th>
+                    <th>Ontvangen</th>
+                    <th>Datumontvangts</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                    <tr onclick="window.document.location='{{ path('ordermagazijn',{'ordernummer':order.id}) }}';">
+                        {#<tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';">#}
+                        <td>{{ order.bestelordernummer }}</td>
+                        <td>{{ order.leverancier  }}</td>
+                        <td>
+                            {% if order.ontvangen == 0 %}
+                                Nee
+                            {% else %}
+                                Ja
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if order.datumontvangst %}
+                                {{ order.datumontvangst|date("m-d-Y") }}
+                            {% else %}
+                                n.v.t.
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if order.status == 1 %}
+                                Concept
+                            {% elseif order.status == 2%}
+                                Besteld
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% include 'blocks/footer.html.twig' %}
+    </div>
+    </body>
+{% endblock %}
