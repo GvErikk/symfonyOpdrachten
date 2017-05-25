@@ -20,9 +20,10 @@
             {% elseif order.status == 2%}
                 Besteld
             {% elseif order.status == 3%}
-                Ontvangen
+                Ontvangen<br />
+            <b>Ontvangstdatum:</b> {{ order.datumontvangst|date("m-d-Y") }}
             {% endif %}<br />
-            <b>Totaalprijs:</b> &euro;{{ counter }}
+            {#<b>Totaalprijs:</b> &euro;{{ counter }}#}
         </p>
         <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
             <thead>

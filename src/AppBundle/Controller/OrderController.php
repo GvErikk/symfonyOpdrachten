@@ -45,14 +45,33 @@ class OrderController extends Controller
      * @Route("/order/alle", name="alleorders")
      */
     public function alleOrders(Request $request){
-//        $em = $this->getDoctrine()->getEntityManager();
-//        $profilis= $em->select('p.*')->from('AppBundle:orders', '')->getQuery()->getResult();
-
-
-        $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 3)), array('ontvangen' => 'DESC'));
+        $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('ontvangen' => 'DESC'));
         return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
     }
 
+    /**
+     * @Route("/order/alleconcept", name="alleordersconcept")
+     */
+    public function alleOrdersConcept(Request $request){
+        $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1)), array('ontvangen' => 'DESC'));
+        return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+    }
+
+    /**
+     * @Route("/order/allebesteld", name="alleordersbesteld")
+     */
+    public function alleOrdersBesteld(Request $request){
+        $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(2)), array('ontvangen' => 'DESC'));
+        return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+    }
+
+    /**
+     * @Route("/order/alleontvagen", name="alleordersontvangen")
+     */
+    public function alleOrdersOntvangen(Request $request){
+        $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(3)), array('ontvangen' => 'DESC'));
+        return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+    }
 
     /**
      * @Route("/magazijn/order/alle", name="alleordersmagazijn")
