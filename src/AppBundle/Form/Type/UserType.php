@@ -20,7 +20,7 @@ class UserType extends AbstractType
         //todo: gebruikersrollen
         $builder->add('gebruikersnaam', TextType::class);
         $builder->add('wachtwoord', PasswordType::class);
-        $builder->add('rol', IntegerType::class, array('label'=>'Gebruikers rol (Inkoper = 1, Magazijn = 2, Verkoper = 3)'));
+        $builder->add('rol', IntegerType::class, array('label'=>'Gebruikersrol (Inkoper = 1, Magazijn = 2, Verkoper = 3)'));
     }
 	
 	public function configureOptions(OptionsResolver $resolver)

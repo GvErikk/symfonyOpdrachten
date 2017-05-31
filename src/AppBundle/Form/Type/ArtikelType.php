@@ -41,7 +41,7 @@ class ArtikelType extends AbstractType
             ->add('minimum_voorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
-            ->add('vooraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
+            ->add('vooraad', IntegerType::class, array('label' => 'Voorraad ')) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
             ->add('bestelserie', IntegerType::class, array('required' => false)) //naam is b.v. een attribuut of variabele van klant

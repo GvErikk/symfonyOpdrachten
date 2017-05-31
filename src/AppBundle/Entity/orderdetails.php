@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * orderdetails
@@ -42,6 +43,10 @@ class orderdetails
      * @var int
      *
      * @ORM\Column(name="Aantal", type="integer")
+     * @Assert\GreaterThan(
+     *     value = 0,
+     *     message = "Het aantal moet boven {{ compared_value }} zijn."
+     * )
      */
     private $aantal;
 
