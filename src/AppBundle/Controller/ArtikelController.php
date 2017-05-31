@@ -50,7 +50,7 @@ class ArtikelController extends Controller
      */
     public function alleArtikelen(Request $request){
         $session = $this->get('session');
-        if ($session->get('rol') == 1 || $session->get('rol') == 2) {
+        if ($session->get('rol') == 1) {
             //alle artikelen omhalen
             $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
             //wegschrijven naar html bestand met de artikelen variable
