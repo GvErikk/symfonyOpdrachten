@@ -24,7 +24,7 @@
                 <tbody>
                 {% if orders %}
                     {% for order in orders %}
-                        <tr onclick="window.document.location='{{ path('order',{'ordernummer':order.id}) }}';">
+                        <tr onclick="window.document.location='{{ path('ordermagazijn',{'ordernummer':order.id}) }}';">
                             {#<tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';">#}
                             <td>{{ order.bestelordernummer }}</td>
                             <td>{{ order.leverancier  }}</td>
