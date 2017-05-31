@@ -2,6 +2,7 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -45,6 +46,8 @@ class ArtikelType extends AbstractType
         $builder
             ->add('bestelserie', IntegerType::class, array('required' => false)) //naam is b.v. een attribuut of variabele van klant
         ;
+        $builder->add('actief', HiddenType::class, array('data' => 1));
+        $builder->add('kwaliteit', HiddenType::class, array('data' => 1));
     }
 	
 	public function configureOptions(OptionsResolver $resolver)
