@@ -21,6 +21,9 @@
         </div>
         <form action="{{ path('login')}}" method="post">
             <div class="login-form">
+                {% if loginfail is defined  %}
+                    <span style="color:red;">Gebruikersnaam en of wachtwoord incorrect.</span>
+                {% endif %}
                 <div class="control-group">
                     <input name="gebruikersnaam" type="text" class="login-field" value="" placeholder="Gebruikersnaam"id="gebruikersnaam">
                     <label class="login-field-icon fui-user" for="login-name"></label>
