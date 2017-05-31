@@ -62,6 +62,22 @@ class ArtikelController extends Controller
     }
 
     /**
+     * @Route("/verkoper/artikelen", name="alleartikelenverkoper")
+     */
+    public function alleArtikelenVerkoper(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 3) {
+            //alle artikelen omhalen
+            $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
+            //wegschrijven naar html bestand met de artikelen variable
+            return new Response($this->render('verkoper/alle_artikellen_verkoper.html.twig', array('artikelen' => $artikelen)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
      * @Route("/inkoper/artikel/wijzig/{artikelnummer}", name="artikelwijzigen")
      */
     public function wijzigArtikel(Request $request, $artikelnummer) {
@@ -125,7 +141,7 @@ class ArtikelController extends Controller
     public function liveSearchAction(Request $request)
     {
         $session = $this->get('session');
-        if ($session->get('rol') == 1 || $session->get('rol') == 2) {
+        if ($session->get('rol') == 1 || $session->get('rol') == 2 || $session->get('rol') == 3) {
             //ophalen post data van ajax call
             $string = $_POST['searchText'];
             //maken select statement om alle artikelnummers op te halen

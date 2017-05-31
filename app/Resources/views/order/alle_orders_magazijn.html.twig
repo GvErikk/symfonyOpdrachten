@@ -15,6 +15,7 @@
                 <tr>
                     <th>Bestelordernummer</th>
                     <th>Leverancier</th>
+                    <th>Leverdatum</th>
                     <th>Ontvangen</th>
                     <th>Datumontvangts</th>
                     <th>Status</th>
@@ -26,6 +27,7 @@
                         {#<tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';">#}
                         <td>{{ order.bestelordernummer }}</td>
                         <td>{{ order.leverancier  }}</td>
+                        <td>{{ order.leverdatum|date("m-d-Y")  }}</td>
                         <td>
                             {% if order.ontvangen == 0 %}
                                 Nee

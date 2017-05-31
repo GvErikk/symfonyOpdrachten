@@ -37,13 +37,16 @@ class LoginController extends Controller
                 $session->set('rol', $user[0]->getRol());
 
                 if ($session->get('rol') == 1){
-                    //Verkoper
+                    return $this->redirect($this->generateurl("alleartikelen"));
                 }
                 elseif ($session->get('rol') == 2){
-                    //magazijn
+                    return $this->redirect($this->generateurl("alleartikelenmazijn"));
                 }
                 elseif ($session->get('rol') == 3){
-                    //leeg
+                    return $this->redirect($this->generateurl("alleartikelenverkoper"));
+                }
+                elseif ($session->get('rol') == 3){
+                    return $this->redirect($this->generateurl("allegebruikers"));
                 }
 
                 //return new Response($session->get('rol'));
@@ -53,6 +56,17 @@ class LoginController extends Controller
             return new Response($this->render('login/login.html.twig'));
         }
 
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout(Request $request)
+    {
+        $session = $this->get('session');
+        $session->remove('gebruikersnaam');
+        $session->remove('rol');
+        return new Response($this->render('login/login.html.twig'));
     }
 
     /**

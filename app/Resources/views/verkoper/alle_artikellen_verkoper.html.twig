@@ -1,0 +1,34 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<br />
+    <div id="wrapper">
+        {% include 'blocks/header.html.twig' %}
+        <div class="content"><br />
+            <b>Welkom verkoper!</b><br />
+            Via deze omgeving is het mogelijk om allerlei handelingen uit te voeren met betrekking tot de producten. U kunt hier alle gegevens van onze producten wijzigen.<br />
+            <div class="row">
+                <div style="margin: 20px;"><input type="text" class="form-control" id="search-field-verkoper" placeholder="Artikelnummer"></div>
+            </div>
+            <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
+                <thead>
+                <tr>
+                    <th>Artikelnummer</th>
+                    <th>Omschrijving</th>
+                    <th>Voorraad</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for artikel in artikelen %}
+                    <tr>
+                        <td>{{ artikel.artikelnummer }}</td>
+                        <td>{{ artikel.omschrijving }}</td>
+                        <td>{{ artikel.vooraad }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% include 'blocks/footer.html.twig' %}
+    </div>
+    </body>
+{% endblock %}
