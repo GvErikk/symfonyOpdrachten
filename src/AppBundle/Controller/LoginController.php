@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Type\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 use AppBundle\Entity\users;
 use Symfony\Component\HttpFoundation\Session\Session;
-
 
 
 
@@ -60,6 +60,73 @@ class LoginController extends Controller
      */
     public function loginprocess(Request $request)
     {
-        return new Response("Hallo wereld ik ben helemaal geen homo");
+        return new Response("Hallo wereld");
     }
+
+
+    /**
+     * @Route("/admin/nieuwegebruiker", name="nieuwegebruiker")
+     */
+    public function nieuwegebruiker(Request $request) {
+        $session = $this->get('session');
+        if ($session->get('rol') == 4) {
+            //todo: gebruikerrol
+            $nieuwegebruiker = new users();
+            $form = $this->createForm(UserType::class, $nieuwegebruiker);
+
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($nieuwegebruiker);
+                $em->flush();
+                return $this->redirect($this->generateurl("nieuwegebruiker"));
+            }
+            return new Response($this->render('login/nieuwe_gebruiker.html.twig', array('form' => $form->createView())));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/admin/gebruiker/wijzig/{gebruikerid}", name="gebruikerwijzigen")
+     */
+    public function wijzigArtikel(Request $request, $gebruikerid) {
+        $session = $this->get('session');
+        if ($session->get('rol') == 4) {
+            $gebruiker = $this->getDoctrine()->getRepository("AppBundle:users")->find($gebruikerid);
+            $form = $this->createForm(UserType::class, $gebruiker);
+
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($gebruiker);
+                $em->flush();
+                return $this->redirect($this->generateurl("alleartikelen"));
+            }
+
+            return new Response($this->render('login/nieuwe_gebruiker.html.twig', array('form' => $form->createView())));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+
+    /**
+     * @Route("/admin/gebruikers", name="allegebruikers")
+     */
+    public function alleGebruikers(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 4) {
+            //alle artikelen omhalen
+            $gebruikers = $this->getDoctrine()->getRepository("AppBundle:users")->findAll();
+            //wegschrijven naar html bestand met de artikelen variable
+            return new Response($this->render('login/alle_gebruikers.html.twig', array('gebruikers' => $gebruikers)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
 }

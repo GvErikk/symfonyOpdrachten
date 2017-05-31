@@ -1,0 +1,42 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<br />
+    <div id="wrapper">
+        {% include 'blocks/header.html.twig' %}
+        {% include 'blocks/menuAdmin.html.twig' %}
+        <div class="content"><br />
+            <b>Alle gebruikers</b><br />
+            <div class="row">
+                {#<div style="margin: 20px;"><input type="text" class="form-control" id="search-field" placeholder="Artikelnummer"></div>#}
+            </div>
+            <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
+                <thead>
+                <tr>
+                    <th>Gebruikersnaam</th>
+                    <th>Gebruikersrol</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for gebruiker in gebruikers %}
+                        <tr onclick="window.document.location='{{ path('gebruikerwijzigen',{'gebruikerid':gebruiker.id}) }}';">
+                            <td>{{ gebruiker.gebruikersnaam }}</td>
+                            <td>
+                                {% if gebruiker.rol == 1 %}
+                                    Inkoper
+                                {% elseif gebruiker.rol == 2 %}
+                                    Magazijn
+                                {% elseif gebruiker.rol == 3 %}
+                                    Verkoper
+                                {% elseif gebruiker.rol == 4 %}
+                                    Beheerder
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% include 'blocks/footer.html.twig' %}
+    </div>
+    </body>
+{% endblock %}
