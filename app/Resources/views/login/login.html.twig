@@ -1,29 +1,42 @@
-{% extends 'pages/base.html.twig' %}
-{% block body %}
-<br />
-    <div id="wrapper">
-        {% include 'blocks/header.html.twig' %}
-        {% include 'blocks/menuArtikelen.html.twig' %}
-        <div class="content"><br />
-            <b>Inloggen</b><br />
-            Alle orders.
-            <div class="row">
-                {#<div style="margin: 20px;"><input type="text" class="form-control" id="search-field" placeholder="Artikelnummer"></div>#}
-            </div>
-            <form action="{{ path('login')}}" method="post">
-                {% if loginfail is defined  %}
-                    {% if loginfail == 1 %}
-                        <span style="color:red;">Gebruikersnaam niet gevonden.</span>
-                    {% elseif loginfail == 2 %}
-                        <span style="color:red;">Gebruikersnaam in combinatie met het wachtwoord is incorrect.</span>
-                    {% endif %}
-                {% endif %}
-                <input type="text" name="gebruikersnaam"/>
-                <input type="password" name="wachtwoord"/>
-                <input name="verzenden" type="submit" class="btn btn-success" />
-            </form>
+
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Lunenburg</title>
+
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    {% endblock %}
+
+
+</head>
+
+<body>
+<body>
+<div class="login">
+    <div class="login-screen">
+        <div class="app-title">
+            <img src="{{ asset('img/logo.png') }}" alt="logo"height="70px" width="250px">
         </div>
-        {% include 'blocks/footer.html.twig' %}
+        <form action="{{ path('login')}}" method="post">
+            <div class="login-form">
+                <div class="control-group">
+                    <input name="gebruikersnaam" type="text" class="login-field" value="" placeholder="Gebruikersnaam"id="gebruikersnaam">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input name="wachtwoord" type="password" class="login-field" value="" placeholder="Wachtwoord" id="wachtwoord">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+                <input value="Inloggen" name="verzenden" type="submit" class="btn btn-primary btn-large btn-block" />
+            </div>
+        </form>
     </div>
-    </body>
-{% endblock %}
+</div>
+</body>
+
+
+</body>
+</html>
