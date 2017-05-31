@@ -17,7 +17,7 @@ $( document ).ready(function() {
             {
                 $("#artikelen").find("tr:gt(0)").remove();
                 $.each(response, function(index,response){
-                   $('#artikelen').append('<tr onclick="window.document.location=\'artikel/'+response.artikelnummer+' \';" ><td>'+response.artikelnummer+'</td><td>'+response.magazijnlocatie+'</td><td>'+response.inkoopprijs+'</td><td>'+response.vooraad+'</td></tr>');
+                   $('#artikelen').append('<tr onclick="window.document.location=\'artikel/'+response.artikelnummer+' \';" ><td>'+response.artikelnummer+'</td><td>'+response.omschrijving+'</td><td>'+response.magazijnlocatie+'</td><td>'+response.inkoopprijs+'</td><td>'+response.vooraad+'</td></tr>');
                    // $('#artikelen').append('<tr onclick="window.document.location=\'artikel/'+response.artikelnummer+' \';" ><td>'+response.artikelnummer+'</td><td>'+response.magazijnlocatie+'</td><td>'+response.inkoopprijs+'</td><td>'+response.vooraad+'</td></tr>');
                 });
             }
