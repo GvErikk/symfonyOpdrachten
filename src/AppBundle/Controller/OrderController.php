@@ -123,7 +123,7 @@ class OrderController extends Controller
      */
     public function getArtikel(Request $request, $ordernummer){
         $session = $this->get('session');
-        if ($session->get('rol') == 1) {
+        if ($session->get('rol') == 1 || $session->get('rol') == 2) {
             $nieuworderdetails = new orderdetails();
             $form = $this->createForm(OrderDetailsType::class, $nieuworderdetails, array('ordernummer' => $ordernummer));
 
