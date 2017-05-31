@@ -52,6 +52,14 @@ class orders
 
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Leverdatum", type="datetime", nullable=false)
+     */
+    private $leverdatum;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="orderdetails", mappedBy="orders")
      *
      */
@@ -195,9 +203,37 @@ class orders
         return $this->datumontvangst;
     }
 
+
+    /**
+     * Set datumontvangst
+     *
+     * @param \DateTime $leverdatum
+     *
+     * @return orders
+     */
+    public function setLeverdatum($leverdatum)
+    {
+        $this->leverdatum = $leverdatum;
+
+        return $this;
+    }
+
+    /**
+     * Get leverdatum
+     *
+     * @return \DateTime
+     */
+    public function getLeverdatum()
+    {
+        return $this->leverdatum;
+    }
+
     public function __construct()
     {
         $this->orderdetails = new ArrayCollection();
+        $this->leverdatum = new \DateTime();
     }
+
+
 }
 

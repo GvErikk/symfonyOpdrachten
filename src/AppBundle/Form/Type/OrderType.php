@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 //EntiteitType vervangen door b.v. KlantType
 class OrderType extends AbstractType
@@ -22,6 +23,7 @@ class OrderType extends AbstractType
         $builder->add('Leverancier', TextType::class);
         $builder->add('Ontvangen', HiddenType::class, array('data' => '0',));
         $builder->add('Status', HiddenType::class, array('data' => '1',));
+        $builder->add('Leverdatum',  DateType::class);
     }
 	
 	public function configureOptions(OptionsResolver $resolver)

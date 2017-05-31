@@ -22,6 +22,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% if orders %}
                     {% for order in orders %}
                         <tr onclick="window.document.location='{{ path('order',{'ordernummer':order.id}) }}';">
                             {#<tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';">#}
@@ -55,6 +56,10 @@
                             </td>
                         </tr>
                     {% endfor %}
+                {% else %}
+                    <tr><td colspan="6">Geen artikelen gevonden op deze datum.</td> </tr>
+                {% endif %}
+
                 </tbody>
             </table>
         </div>
