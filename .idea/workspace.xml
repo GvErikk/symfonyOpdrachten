@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6ebf9bf-e7c3-4cdb-8da6-ae8307eaf2ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/order/alle_orders.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/order/alle_orders.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/search.js" afterPath="$PROJECT_DIR$/web/js/search.js" />
@@ -26,25 +25,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="alle_orders.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/order/alle_orders.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OrderController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="300" column="45" selection-start-line="300" selection-start-column="45" selection-end-line="300" selection-end-column="45" />
+            <state relative-caret-position="421">
+              <caret line="352" column="0" selection-start-line="352" selection-start-column="0" selection-end-line="352" selection-end-column="0" />
               <folding>
                 <element signature="e#41#70#0#PHP" expanded="true" />
                 <element signature="e#582#610#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alle_orders.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/order/alle_orders.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,8 +113,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/UserType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/LoginController.php" />
         <option value="$PROJECT_DIR$/web/js/search.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/order/alle_orders.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php" />
       </list>
     </option>
   </component>
@@ -493,12 +492,12 @@
       <workItem from="1495478405921" duration="28517000" />
       <workItem from="1496138856240" duration="31260000" />
       <workItem from="1496305132690" duration="500000" />
-      <workItem from="1496830548130" duration="2585000" />
+      <workItem from="1496830548130" duration="3889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180516000" />
+    <option name="totallyTimeSpent" value="181820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
@@ -810,8 +809,8 @@
         <state relative-caret-position="4216">
           <caret line="259" column="45" selection-start-line="259" selection-start-column="16" selection-end-line="259" selection-end-column="45" />
           <folding>
-            <element signature="e#40#99#0#PHP" expanded="true" />
-            <element signature="e#474#503#0#PHP" expanded="true" />
+            <element signature="e#40#99#0#PHP" expanded="false" />
+            <element signature="e#474#503#0#PHP" expanded="false" />
             <marker date="1496257624219" expanded="true" signature="5556:5618" ph="SELECT * FRO... artikel" />
             <marker date="1496257624219" expanded="true" signature="5556:5634" ph="SELECT * FRO... artikel" />
             <marker date="1496257624219" expanded="true" signature="5556:5655" ph="SELECT * FRO... artikel" />
@@ -859,7 +858,7 @@
         <state relative-caret-position="1649">
           <caret line="104" column="7" selection-start-line="104" selection-start-column="7" selection-end-line="104" selection-end-column="7" />
           <folding>
-            <element signature="e#40#73#0#PHP" expanded="true" />
+            <element signature="e#40#73#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -885,23 +884,23 @@
         <state relative-caret-position="340">
           <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
           <folding>
-            <element signature="e#38#78#0#PHP" expanded="true" />
+            <element signature="e#38#78#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/order/alle_orders.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+        <state relative-caret-position="306">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="300" column="45" selection-start-line="300" selection-start-column="45" selection-end-line="300" selection-end-column="45" />
+        <state relative-caret-position="421">
+          <caret line="352" column="0" selection-start-line="352" selection-start-column="0" selection-end-line="352" selection-end-column="0" />
           <folding>
             <element signature="e#41#70#0#PHP" expanded="true" />
             <element signature="e#582#610#0#PHP" expanded="true" />

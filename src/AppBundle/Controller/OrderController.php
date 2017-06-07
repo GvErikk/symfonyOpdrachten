@@ -309,5 +309,61 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * @Route("/order/alle/datumontvangst/a-z", name="alleordersOrderbyDatumontvangstAZ")
+     */
+    public function alleordersOrderbyDatumontvangstAZ(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('datumontvangst' => 'ASC'));
+            return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/order/alle/datumontvangst/z-a", name="alleordersOrderbyDatumontvangstZA")
+     */
+    public function alleordersOrderbyDatumontvangstZA(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('datumontvangst' => 'DESC'));
+            return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/order/alle/Leverdatum/a-z", name="alleordersOrderbyLeverdatumAZ")
+     */
+    public function alleordersOrderbyLeverdatumtAZ(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('leverdatum' => 'ASC'));
+            return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/order/alle/Leverdatum/z-a", name="alleordersOrderbyLeverdatumZA")
+     */
+    public function alleordersOrderbyLeverdatumtZA(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('leverdatum' => 'DESC'));
+            return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
 
 }

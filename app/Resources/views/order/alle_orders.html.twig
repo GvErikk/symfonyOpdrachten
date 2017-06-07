@@ -17,8 +17,16 @@
                     <th>Bestelordernummer</th>
                     <th>Leverancier</th>
                     <th>Ontvangen</th>
-                    <th>Verwachte leverdatum</th>
-                    <th>Datumontvangst</th>
+                    {% if currentPath|last != 'a-z' %}
+                        <th><a href="{{ path('alleordersOrderbyLeverdatumAZ') }}">Verwachte leverdatum</a></th>
+                    {% else %}
+                        <th><a href="{{ path('alleordersOrderbyLeverdatumZA') }}">Verwachte leverdatum</a></th>
+                    {% endif %}
+                    {% if currentPath|last != 'a-z' %}
+                        <th><a href="{{ path('alleordersOrderbyDatumontvangstAZ') }}">Ontvangstdatum</a></th>
+                    {% else %}
+                        <th><a href="{{ path('alleordersOrderbyDatumontvangstZA') }}">Ontvangstdatum</a></th>
+                    {% endif %}
                     {% if currentPath|last != 'a-z' %}
                         <th><a href="{{ path('alleordersOrderbyStatusAZ') }}">Status</a></th>
                     {% else %}
