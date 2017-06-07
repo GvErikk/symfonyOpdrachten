@@ -14,6 +14,7 @@
                 <thead>
                 <tr>
                     <th>Artikelnummer</th>
+                    <th>Producttype</th>
                     <th>Omschrijving</th>
                     <th>Magazijnlocatie</th>
                     <th>Inkoopprijs</th>
@@ -24,6 +25,7 @@
                 {% for artikel in artikelen %}
                     <tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';">
                         <td>{{ artikel.artikelnummer }}</td>
+                        <td>{{ artikel.bestelserie }}</td>
                         <td>{{ artikel.omschrijving }}</td>
                         <td>{{ artikel.magazijnlocatie }}</td>
                         <td>{{ artikel.inkoopprijs }}</td>
