@@ -36,6 +36,8 @@ class ArtikelType extends AbstractType
         $builder
             ->add('magazijnlocatie', TextType::class, array(
                 'disabled'   => false,
+                'label' => 'Magazijn loactie (00-99\A-Z00-99)',
+                'data' => '05\AB\10',
             ));
         $builder
             ->add('minimum_voorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
