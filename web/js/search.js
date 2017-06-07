@@ -23,4 +23,26 @@ $( document ).ready(function() {
             }
         });
     });
+
+    var searchField2 = $('#search-field-verkoper');
+
+
+
+    searchField2.keyup(function(evt){
+
+        $.ajax({
+            type: "POST",
+            url: "/symfonyOpdrachten/web/app_dev.php/inkoper/zoek",
+            dataType: "json",
+            data: {searchText : $(this).val()},
+            success : function(response)
+            {
+                $("#artikelen").find("tr:gt(0)").remove();
+                $.each(response, function(index,response){
+                    $('#artikelen').append('<tr><td>'+response.artikelnummer+'</td><td>'+response.omschrijving+'</td><td>'+response.vooraad+'</td></tr>');
+                });
+            }
+        });
+    });
+
 });

@@ -116,7 +116,7 @@ class LoginController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($gebruiker);
                 $em->flush();
-                return $this->redirect($this->generateurl("alleartikelen"));
+                return $this->redirect($this->generateurl("allegebruikers"));
             }
 
             return new Response($this->render('login/nieuwe_gebruiker.html.twig', array('form' => $form->createView())));
