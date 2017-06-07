@@ -46,12 +46,12 @@ class ArtikelType extends AbstractType
             ->add('vooraad', IntegerType::class, array('label' => 'Voorraad ')) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
-            ->add('bestelserie', IntegerType::class, array('required' => false)) //naam is b.v. een attribuut of variabele van klant
+            ->add('bestelserie', TextType::class, array('required' => true)) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder->add('actief', HiddenType::class, array('data' => 1));
         $builder->add('kwaliteit', HiddenType::class, array('data' => 1));
     }
-	
+
 	public function configureOptions(OptionsResolver $resolver)
 	{
 		$resolver->setDefaults(array(

@@ -43,10 +43,10 @@ class ArtikelTypeWijzigen extends AbstractType
             ->add('vooraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
         ;
         $builder
-            ->add('bestelserie', IntegerType::class, array('required' => false)) //naam is b.v. een attribuut of variabele van klant
+            ->add('bestelserie', TextType::class, array('required' => true)) //naam is b.v. een attribuut of variabele van klant
         ;
     }
-	
+
 	public function configureOptions(OptionsResolver $resolver)
 	{
 		$resolver->setDefaults(array(

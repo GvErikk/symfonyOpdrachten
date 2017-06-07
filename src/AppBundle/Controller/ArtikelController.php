@@ -272,7 +272,36 @@ class ArtikelController extends Controller
         }
     }
 
+    /**
+     * @Route("/inkoper/producttype", name="alleaproducttype")
+     */
+    public function alleProducttype(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
 
+            $repository = $this->getDoctrine()->getRepository('AppBundle:artikel');
+            $query = $repository->createQueryBuilder('p')->groupBy('p.bestelserie')->getQuery();
+            $artikelen = $query->getResult();
+
+            return new Response($this->render('pages/producttype.overzicht_inkoper.html.twig', array('artikelen' => $artikelen)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+    /**
+     * @Route("/inkoper/producttype/{bestelserie}", name="producttype")
+     */
+    public function getProducttype($bestelserie){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array("bestelserie" => $bestelserie ));
+            return new Response($this->render('pages/alle_producttypen_inkoper.html.twig', array('artikelen' => $artikel)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
 
 
 }

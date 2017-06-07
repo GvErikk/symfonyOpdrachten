@@ -1,0 +1,43 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<br />
+    <div id="wrapper">
+        {% include 'blocks/header.html.twig' %}
+        {% include 'blocks/menuArtikelen.html.twig' %}
+        <div class="content"><br />
+            <b>Welkom Inkoper!</b><br />
+            Via deze omgeving is het mogelijk om allerlei handelingen uit te voeren met betrekking tot de producten. U kunt hier alle gegevens van onze producten wijzigen.<br />
+            <div class="row">
+            </div>
+            <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
+                <thead>
+                <tr>
+                    <th>Artikelnummer</th>
+                    <th>Producttype</th>
+                    <th>Omschrijving</th>
+                    <th>Magazijnlocatie</th>
+                    <th>Inkoopprijs</th>
+                    <th>Voorraad</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for artikel in artikelen %}
+                    <tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';">
+                        <td>{{ artikel.artikelnummer }}</td>
+                        <td>{{ artikel.bestelserie }}</td>
+                        <td>{{ artikel.omschrijving }}</td>
+                        <td>{{ artikel.magazijnlocatie }}</td>
+                        <td>{{ artikel.inkoopprijs }}</td>
+                        <td>{{ artikel.vooraad }}</td>
+
+                    </tr>
+                    {#{{ dump(artikel) }}#}
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% include 'blocks/footer.html.twig' %}
+    </div>
+    </body>
+{% endblock %}
