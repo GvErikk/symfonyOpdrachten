@@ -107,9 +107,9 @@ class artikel
     private $vooraad;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="bestelserie", type="integer")
+     * @ORM\Column(name="bestelserie", type="string")
      */
     private $bestelserie;
 
@@ -323,7 +323,7 @@ class artikel
     /**
      * Set bestelserie
      *
-     * @param integer $bestelserie
+     * @param string $bestelserie
      *
      * @return artikel
      */
@@ -337,7 +337,7 @@ class artikel
     /**
      * Get bestelserie
      *
-     * @return int
+     * @return string
      */
     public function getBestelserie()
     {
@@ -393,4 +393,3 @@ class artikel
         return $this->kwaliteit;
     }
 }
-
