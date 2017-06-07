@@ -283,7 +283,13 @@ class ArtikelController extends Controller
             $query = $repository->createQueryBuilder('p')->groupBy('p.bestelserie')->getQuery();
             $artikelen = $query->getResult();
 
-            return new Response($this->render('pages/producttype.overzicht_inkoper.html.twig', array('artikelen' => $artikelen)));
+
+            $yourCount = $repository->createQueryBuilder('p')->select('sum(p.vooraad) as bestelserieCount, p.bestelserie')
+              ->groupBy('p.bestelserie')
+              ->getQuery()
+              ->getResult();
+
+            return new Response($this->render('pages/producttype.overzicht_inkoper.html.twig', array('artikelen' => $artikelen, 'aantallen' =>  $yourCount)));
         }
         else{
             return new Response('Geen toegang.');
@@ -303,5 +309,13 @@ class ArtikelController extends Controller
         }
     }
 
+    public function getProducttypeOpgeteld(){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+
+
+      }
+
+    }
 
 }
