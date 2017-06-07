@@ -281,5 +281,33 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * @Route("/order/alle/status/a-z", name="alleordersOrderbyStatusAZ")
+     */
+    public function alleordersOrderbyStatusAZ(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('status' => 'ASC'));
+            return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/order/alle/status/z-a", name="alleordersOrderbyStatusZA")
+     */
+    public function alleordersOrderbyStatusZA(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('status' => 'DESC'));
+            return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
 
 }

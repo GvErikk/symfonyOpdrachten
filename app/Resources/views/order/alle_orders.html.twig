@@ -1,5 +1,6 @@
 {% extends 'pages/base.html.twig' %}
 {% block body %}
+{% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params'))|split('/') %}
 <br />
     <div id="wrapper">
         {% include 'blocks/header.html.twig' %}
@@ -18,7 +19,11 @@
                     <th>Ontvangen</th>
                     <th>Leverdatum</th>
                     <th>Datumontvangst</th>
-                    <th>Status</th>
+                    {% if currentPath|last != 'a-z' %}
+                        <th><a href="{{ path('alleordersOrderbyStatusAZ') }}">Status</a></th>
+                    {% else %}
+                        <th><a href="{{ path('alleordersOrderbyStatusZA') }}">Status</a></th>
+                    {% endif %}
                 </tr>
                 </thead>
                 <tbody>
