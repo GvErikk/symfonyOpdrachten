@@ -309,7 +309,6 @@ class ArtikelController extends Controller
         }
     }
 
-<<<<<<< HEAD
     /**
      * @Route("/inkoper/producttype-tebestellen", name="producttypetebestellen")
      */
@@ -344,16 +343,5 @@ class ArtikelController extends Controller
             return new Response('Geen toegang.');
         }
     }
-
-=======
-    public function getProducttypeOpgeteld(){
-        $session = $this->get('session');
-        if ($session->get('rol') == 1) {
-
-
-      }
-
-    }
->>>>>>> b687477ba25c3a94997b1dc2373edbf010142983
 
 }

@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6ebf9bf-e7c3-4cdb-8da6-ae8307eaf2ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_onder_voorraad_bestellen.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/pages/producttype.overzicht_tebestellen.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_bestellen.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_bestellen.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/search.js" afterPath="$PROJECT_DIR$/web/js/search.js" />
     </list>
@@ -28,23 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ArtikelController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArtikelController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="333" column="84" selection-start-line="333" selection-start-column="84" selection-end-line="333" selection-end-column="84" />
+            <state relative-caret-position="1478">
+              <caret line="344" column="5" selection-start-line="344" selection-start-column="5" selection-end-line="344" selection-end-column="5" />
               <folding>
                 <element signature="e#40#99#0#PHP" expanded="true" />
                 <element signature="e#474#503#0#PHP" expanded="true" />
-                <marker date="1496917314464" expanded="true" signature="5556:5618" ph="SELECT * FRO... artikel" />
-                <marker date="1496917314464" expanded="true" signature="5556:5634" ph="SELECT * FRO... artikel" />
-                <marker date="1496917314464" expanded="true" signature="5556:5655" ph="SELECT * FRO... artikel" />
+                <marker date="1496917481790" expanded="true" signature="5556:5618" ph="SELECT * FRO... artikel" />
+                <marker date="1496917481790" expanded="true" signature="5556:5634" ph="SELECT * FRO... artikel" />
+                <marker date="1496917481790" expanded="true" signature="5556:5655" ph="SELECT * FRO... artikel" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alle_artikellen_onder_voorraad_bestellen.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="alle_artikellen_onder_voorraad_bestellen.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_onder_voorraad_bestellen.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
@@ -139,8 +135,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/artikel.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/producttype.overzicht_tebestellen.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_bestellen.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_onder_voorraad_bestellen.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php" />
       </list>
     </option>
   </component>
@@ -545,12 +541,12 @@
       <workItem from="1496138856240" duration="31260000" />
       <workItem from="1496305132690" duration="500000" />
       <workItem from="1496830548130" duration="7671000" />
-      <workItem from="1496916677731" duration="619000" />
+      <workItem from="1496916677731" duration="786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186221000" />
+    <option name="totallyTimeSpent" value="186388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
@@ -932,25 +928,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="333" column="84" selection-start-line="333" selection-start-column="84" selection-end-line="333" selection-end-column="84" />
-          <folding>
-            <element signature="e#40#99#0#PHP" expanded="true" />
-            <element signature="e#474#503#0#PHP" expanded="true" />
-            <marker date="1496917314464" expanded="true" signature="5556:5618" ph="SELECT * FRO... artikel" />
-            <marker date="1496917314464" expanded="true" signature="5556:5634" ph="SELECT * FRO... artikel" />
-            <marker date="1496917314464" expanded="true" signature="5556:5655" ph="SELECT * FRO... artikel" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/alle_artikellen_onder_voorraad_bestellen.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ArtikelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1478">
+          <caret line="344" column="5" selection-start-line="344" selection-start-column="5" selection-end-line="344" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#99#0#PHP" expanded="true" />
+            <element signature="e#474#503#0#PHP" expanded="true" />
+            <marker date="1496917481790" expanded="true" signature="5556:5618" ph="SELECT * FRO... artikel" />
+            <marker date="1496917481790" expanded="true" signature="5556:5634" ph="SELECT * FRO... artikel" />
+            <marker date="1496917481790" expanded="true" signature="5556:5655" ph="SELECT * FRO... artikel" />
+          </folding>
         </state>
       </provider>
     </entry>
