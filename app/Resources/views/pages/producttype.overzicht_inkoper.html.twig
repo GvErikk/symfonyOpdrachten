@@ -13,14 +13,18 @@
                 <thead>
                 <tr>
                     <th>Producttype</th>
+                    <th>Vorraad per producttype</th>
                 </tr>
                 </thead>
                 <tbody>
+                  {% set key = 0 %}
                 {% for artikel in artikelen %}
                     <tr onclick="window.document.location='{{ path('producttype',{'bestelserie':artikel.bestelserie}) }}';">
                         <td>{{ artikel.bestelserie }}</td>
+                      <td>{{aantallen[key].bestelserieCount}}</td>
 
                     </tr>
+                    {% set key = key +1 %}
                 {% endfor %}
 
                 </tbody>
