@@ -303,5 +303,40 @@ class ArtikelController extends Controller
         }
     }
 
+    /**
+     * @Route("/inkoper/producttype-tebestellen", name="producttypetebestellen")
+     */
+    public function producttypeTeBestellen(){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1 || $session->get('rol') == 2) {
+            $repository = $this->getDoctrine()->getRepository('AppBundle:artikel');
+            $query = $repository->createQueryBuilder('p')->where('p.minimumVoorraad > p.vooraad')->groupBy('p.bestelserie')->getQuery();
+            $artikelen = $query->getResult();
+
+
+
+            return new Response($this->render('pages/producttype.overzicht_tebestellen.html.twig', array('artikelen' => $artikelen)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/inkoper/producttype-tebestellen/{bestelserie}", name="alleartikelentebestellenbestelserie")
+     */
+    public function alleArtikelenTeBestellenbestelserie($bestelserie){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1 || $session->get('rol') == 2) {
+            $repository = $this->getDoctrine()->getRepository('AppBundle:artikel');
+            $query = $repository->createQueryBuilder('p')->where('p.minimumVoorraad > p.vooraad AND p.bestelserie = \''.$bestelserie.'\'')->getQuery();
+            $artikelen = $query->getResult();
+            return new Response($this->render('pages/alle_artikellen_onder_voorraad_bestellen.html.twig', array('artikelen' => $artikelen)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
 
 }

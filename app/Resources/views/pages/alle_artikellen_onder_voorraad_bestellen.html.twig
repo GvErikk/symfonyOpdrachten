@@ -10,7 +10,7 @@
         </div>
         <div class="content"><br />
             <b>Welkom Inkoper !</b><br />
-            Via deze omgeving is het mogelijk om allerlei handelingen uit te voeren met betrekking tot het magazijn. U kunt producten opzoeken, de voorraad wijzigen en de locatie van producten wijzigen. <br />
+            Hier kunt u producten bestellen die onder de minimalevoorraad zitten. <br />
             <div class="row">
                 {#<div style="margin: 20px;"><input type="text" class="form-control" id="search-field" placeholder="Artikelnummer"></div>#}
             </div>
@@ -29,7 +29,7 @@
                     </thead>
                     <tbody>
                     {% for artikel in artikelen %}
-                        <tr onclick="window.document.location='{{ path('artikelMagazijn',{'artikelnummer':artikel.artikelnummer}) }}';">
+                        <tr>
                             <td>{{ artikel.artikelnummer }}</td>
                             <td>{{ artikel.omschrijving }}</td>
                             <td>{{ artikel.magazijnlocatie }}</td>
