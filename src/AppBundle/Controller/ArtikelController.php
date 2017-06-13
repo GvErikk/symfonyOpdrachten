@@ -344,4 +344,60 @@ class ArtikelController extends Controller
         }
     }
 
+
+    /**
+     * @Route("/financieel", name="financieel")
+     */
+    public function alleFinancieel(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 5) /**nog te veranderen naar rol 5 */ {
+            //alle artikelen omhalen
+            $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
+
+            $repository = $this->getDoctrine()->getRepository('AppBundle:artikel');
+            $query = $repository->createQueryBuilder('p')->groupBy('p.bestelserie')->getQuery();
+            $artikelen = $query->getResult();
+
+
+            //wegschrijven naar html bestand met de artikelen variable
+            return new Response($this->render('pages/financieel_overzicht.twig', array('artikelen' => $artikelen)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/financieel/waarde", name="totalewaarde")
+     */
+    public function totaleWaarde(Request $request){
+        $session = $this->get('session');
+        if ($session->get('rol') == 5) /**nog te veranderen naar rol 5 voor financieel */ {
+            //alle artikelen omhalen
+            $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
+
+            $repository = $this->getDoctrine()->getRepository('AppBundle:artikel');
+            $query = $repository->createQueryBuilder('p')->groupBy('p.bestelserie')->getQuery();
+            $artikelen = $query->getResult();
+
+            // $repository = $this->getDoctrine()->getRepository('AppBundle:artikel');
+            // $query = $repository->createQueryBuilder('p')->groupBy('p.inkoopprijs')->getQuery();
+            // $artikelen = $query->getResult();
+
+
+            $yourCount = $repository->createQueryBuilder('p')->select('sum(p.inkoopprijs) as inkoopprijsCount, p.bestelserie')
+              ->groupBy('p.bestelserie')
+              ->getQuery()
+              ->getResult();
+
+
+
+            //wegschrijven naar html bestand met de artikelen variable
+            return new Response($this->render('pages/totalewaarde.overzicht_financieel.html.twig', array('artikelen' => $artikelen, 'aantallen' =>  $yourCount)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+  
 }

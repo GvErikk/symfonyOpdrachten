@@ -48,6 +48,9 @@ class LoginController extends Controller
                 elseif ($session->get('rol') == 4){
                     return $this->redirect($this->generateurl("allegebruikers"));
                 }
+                elseif ($session->get('rol') == 5){
+                    return $this->redirect($this->generateurl("financieel"));
+                }
 
                 //return new Response($session->get('rol'));
             }

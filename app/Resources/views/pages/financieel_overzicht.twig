@@ -1,0 +1,33 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+<br />
+    <div id="wrapper">
+        {% include 'blocks/header.html.twig' %}
+        {% include 'blocks/menuFinancieel.html.twig' %}
+        <div class="content"><br />
+            <b>Welkom Financieel Manager!</b><br />
+              Via deze omgeving is het mogelijk om inzage te krijgen in de waarde van de gehele voorraad aan de hand van de inkoopprijs.<br />
+            <div class="row">
+            </div>
+            <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
+                <thead>
+                <tr>
+                    <th>Producttype</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for artikel in artikelen %}
+                    <!-- <tr onclick="window.document.location='{{ path('artikel',{'artikelnummer':artikel.artikelnummer}) }}';"> -->
+                        <td>{{ artikel.bestelserie }}</td>
+
+                    </tr>
+                    {#{{ dump(artikel) }}#}
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% include 'blocks/footer.html.twig' %}
+    </div>
+    </body>
+{% endblock %}
