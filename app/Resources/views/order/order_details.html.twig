@@ -55,6 +55,8 @@
                 <a href="{{ path('naarbesteld',{'ordernummer':order.id}) }}"><button type="button" class="btn btn-success">Bestellen</button></a>
                 <a href="{{ path('alleorders') }}"><button type="button" class="btn btn-warning">Annuleren</button></a>
             </div>
+        {% elseif order.status == 3 %}
+            <a href="{{ path('orderRetour',{'ordernummer':order.id}) }}"><button type="button" class="btn btn-success">Retour</button></a>
         {% endif %}
         <br />
         <br />

@@ -54,7 +54,7 @@ class OrderController extends Controller
     public function alleOrders(Request $request){
         $session = $this->get('session');
         if ($session->get('rol') == 1) {
-            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('ontvangen' => 'DESC'));
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3, 4)), array('ontvangen' => 'DESC'));
             return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
         }
         else{
@@ -287,7 +287,7 @@ class OrderController extends Controller
     public function alleordersOrderbyStatusAZ(Request $request){
         $session = $this->get('session');
         if ($session->get('rol') == 1) {
-            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('status' => 'ASC'));
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3, 4)), array('status' => 'ASC'));
             return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
         }
         else{
@@ -301,7 +301,7 @@ class OrderController extends Controller
     public function alleordersOrderbyStatusZA(Request $request){
         $session = $this->get('session');
         if ($session->get('rol') == 1) {
-            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('status' => 'DESC'));
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3, 4)), array('status' => 'DESC'));
             return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
         }
         else{
@@ -315,7 +315,7 @@ class OrderController extends Controller
     public function alleordersOrderbyDatumontvangstAZ(Request $request){
         $session = $this->get('session');
         if ($session->get('rol') == 1) {
-            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('datumontvangst' => 'ASC'));
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3, 4)), array('datumontvangst' => 'ASC'));
             return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
         }
         else{
@@ -329,7 +329,7 @@ class OrderController extends Controller
     public function alleordersOrderbyDatumontvangstZA(Request $request){
         $session = $this->get('session');
         if ($session->get('rol') == 1) {
-            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('datumontvangst' => 'DESC'));
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3, 4)), array('datumontvangst' => 'DESC'));
             return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
         }
         else{
@@ -343,7 +343,7 @@ class OrderController extends Controller
     public function alleordersOrderbyLeverdatumtAZ(Request $request){
         $session = $this->get('session');
         if ($session->get('rol') == 1) {
-            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('leverdatum' => 'ASC'));
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3, 4)), array('leverdatum' => 'ASC'));
             return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
         }
         else{
@@ -357,7 +357,7 @@ class OrderController extends Controller
     public function alleordersOrderbyLeverdatumtZA(Request $request){
         $session = $this->get('session');
         if ($session->get('rol') == 1) {
-            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3)), array('leverdatum' => 'DESC'));
+            $orders = $this->getDoctrine()->getRepository("AppBundle:orders")->findBy(array('status' => array(1, 2, 3, 4)), array('leverdatum' => 'DESC'));
             return new Response($this->render('order/alle_orders.html.twig', array('orders' => $orders)));
         }
         else{
@@ -418,6 +418,32 @@ class OrderController extends Controller
             $order = $this->getDoctrine()->getRepository("AppBundle:orders")->find($ordernummer);
             $orderdetails = $this->getDoctrine()->getRepository("AppBundle:orderdetails")->findBy(array('orderId' => $ordernummer));
             return new Response($this->render('order/order_details_een_order.html.twig', array('order' => $order,'orderdetails' => $orderdetails)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/order/retour/{ordernummer}", name="orderRetour")
+     */
+    public function orderRetour($ordernummer)
+    {
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $adminentities = $em->getRepository('AppBundle:orders')->find($ordernummer);
+            $orderdetails = $this->getDoctrine()->getRepository("AppBundle:orderdetails")->findBy(array('orderId' => $ordernummer));
+
+
+
+            foreach ($orderdetails as $orderdetail){
+                $nieuwevoorraad = $orderdetail->getArtikelnummer()->getVooraad() - $orderdetail->getAantal();
+                $orderdetail->getArtikelnummer()->setVooraad($nieuwevoorraad);
+            }
+            $adminentities->setStatus(4);
+            $em->flush();
+            return $this->redirect($this->generateurl("alleorders"));
         }
         else{
             return new Response('Geen toegang.');

@@ -64,6 +64,8 @@
                                     Besteld
                                 {% elseif order.status == 3%}
                                     Ontvangen
+                                {% elseif order.status == 4 %}
+                                    Retour
                                 {% endif %}
                             </td>
                         </tr>
