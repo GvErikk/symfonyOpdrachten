@@ -1,0 +1,60 @@
+{% extends 'pages/base.html.twig' %}
+{% block body %}
+    {% set counter = 0 %}
+<div id="wrapper">
+    {% include 'blocks/header.html.twig' %}
+    {% include 'blocks/menuArtikelen.html.twig' %}
+    <div class="content"><br />
+        <h2>Order: {{ order.bestelordernummer }}</h2>
+    </div>
+    <div class="container">
+        <p style="margin: 25px;">
+            <b>Leverancier:</b> {{ order.leverancier }}<br />
+            <b>Bestelordernumer:</b> {{  order.bestelordernummer }}<br />
+            <b>Status:</b> {% if order.status == 1 %}
+                Concept
+            {% elseif order.status == 2%}
+                Besteld
+            {% elseif order.status == 3%}
+                Ontvangen<br />
+            <b>Ontvangstdatum:</b> {{ order.datumontvangst|date("m-d-Y") }}
+            {% endif %}<br />
+            {#<b>Totaalprijs:</b> &euro;{{ counter }}#}
+        </p>
+        <table id="artikelen" class="table table-hover" style="margin: 20px; width: 97%;">
+            <thead>
+            <tr>
+                <th>Artikelnummer</th>
+                <th>Omschrijving</th>
+                <th>Aantal</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if orderdetails == false %}
+                <tr>
+                    <td colspan="3">Geen artikelen gevonden.</td>
+                </tr>
+            {% else %}
+                {% for orderdetail in orderdetails %}
+                    <tr>
+                        {{ dump(orderdetail) }}
+                        {#<td>{{ orderdetail.artikelnummer.artikelnummer }}</td>#}
+                        {#<td>{{ orderdetail.artikelnummer.omschrijving   }}</td>#}
+                        {#<td>{{ orderdetail.aantal   }}</td>#}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+        {% if order.status == 1 %}
+            <div style="margin: 25px;">
+                <a href="{{ path('naarbesteld',{'ordernummer':order.id}) }}"><button type="button" class="btn btn-success">Bestellen</button></a>
+                <a href="{{ path('alleorders') }}"><button type="button" class="btn btn-warning">Annuleren</button></a>
+            </div>
+        {% endif %}
+        <br />
+        <br />
+    </div>
+    {% include 'blocks/footer.html.twig' %}
+</div>
+{% endblock %}

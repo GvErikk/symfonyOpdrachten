@@ -365,5 +365,67 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * @Route("/order/nieuw/onder/voorraad/{artikelnummer}", name="nieuworderOnderVoorraad")
+     */
+    public function nieuworderOnderVoorraad(Request $request, $artikelnummer) {
+        $session = $this->get('session');
+        if ($session->get('rol') == 1) {
+            if (isset($_POST['submit'])){
+                $aantal = $_POST['aantal'];
+                $session->set('aantal', $aantal);
+            }
+
+            $nieuworder = new orders();
+            $form = $this->createForm(OrderType::class, $nieuworder);
+
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($nieuworder);
+                $em->flush();
+
+                $orderdetail = new orderdetails();
+                $orderdetail->setOrderId($nieuworder->getId());
+                $artikel = $this->getDoctrine()->getRepository("AppBundle:artikel")->find($artikelnummer);
+                $orderdetail->setArtikelnummer($artikel);
+                $orderdetail->setAantal($session->get('aantal'));
+
+                $session->remove('aantal');
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($orderdetail);
+                $em->flush();
+
+                return $this->redirect($this->generateurl('order', array('ordernummer' => $nieuworder->getId())));
+            }
+            return new Response($this->render('order/form_nieuw_order.html.twig', array('form' => $form->createView())));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+    /**
+     * @Route("/order/bestellen/{ordernummer}/{artikelnummer}", name="orderEenOrder")
+     */
+    public function orderEenOrder(Request $request, $ordernummer, $artikelnummer){
+        $session = $this->get('session');
+        if ($session->get('rol') == 1 || $session->get('rol') == 2) {
+
+
+            $order = $this->getDoctrine()->getRepository("AppBundle:orders")->find($ordernummer);
+            $orderdetails = $this->getDoctrine()->getRepository("AppBundle:orderdetails")->findBy(array('orderId' => $ordernummer));
+            return new Response($this->render('order/order_details_een_order.html.twig', array('order' => $order,'orderdetails' => $orderdetails)));
+        }
+        else{
+            return new Response('Geen toegang.');
+        }
+    }
+
+
+
+
 
 }

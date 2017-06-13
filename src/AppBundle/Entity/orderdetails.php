@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * orderdetails
@@ -131,6 +132,11 @@ class orderdetails
     public function getAantal()
     {
         return $this->aantal;
+    }
+
+    public function __construct()
+    {
+        $this->artikel = new ArrayCollection();
     }
 }
 

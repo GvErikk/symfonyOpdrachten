@@ -392,4 +392,9 @@ class artikel
     {
         return $this->kwaliteit;
     }
+
+    public function __construct()
+    {
+        $this->orderdetails = new ArrayCollection();
+    }
 }

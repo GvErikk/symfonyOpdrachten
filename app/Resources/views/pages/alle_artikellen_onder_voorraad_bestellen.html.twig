@@ -19,24 +19,22 @@
                     <thead>
                     <tr>
                         <th>Artikelnummer</th>
-                        <th>Omschrijving</th>
-                        <th>Magazijnlocatie</th>
+                        <th>Bestelserie</th>
                         <th>Inkoopprijs</th>
                         <th>Minimum voorraad</th>
                         <th>Voorraad in aantal</th>
-                        <th>Bestelserie</th>
+                        <th>Bestellen</th>
+
                     </tr>
                     </thead>
                     <tbody>
                     {% for artikel in artikelen %}
                         <tr>
                             <td>{{ artikel.artikelnummer }}</td>
-                            <td>{{ artikel.omschrijving }}</td>
-                            <td>{{ artikel.magazijnlocatie }}</td>
+                            <td>{{ artikel.bestelserie }}</td>
                             <td>{{ artikel.inkoopprijs }}</td>
                             <td>{{ artikel.minimumVoorraad }}</td>
                             <td>{{ artikel.vooraad }}</td>
-                            <td>{{ artikel.bestelserie }}</td>
                         </tr>
                         {#{{ dump(artikel) }}#}
                     {% endfor %}
