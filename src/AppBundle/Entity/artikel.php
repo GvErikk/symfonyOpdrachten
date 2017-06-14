@@ -57,10 +57,6 @@ class artikel
      *     value = "/^\d{2}\W{1}[a-zA-Z]{1}\d{2}$/",
      *     message = "Magazijnlocatie moet bestaan uit 00-99\A-Z00-99"
      * )
-     * @Assert\Length(
-     *     max="6",
-     *     maxMessage = "Magazijnlocatie moet bestaan uit 00-99\A-Z00-99"
-     * )
      */
     private $magazijnlocatie;
 
