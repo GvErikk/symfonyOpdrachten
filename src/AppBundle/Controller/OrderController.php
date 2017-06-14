@@ -20,6 +20,8 @@ use AppBundle\Entity\orders;
 use AppBundle\Form\Type\OrderType;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+use AppBundle\Entity\ordercontrole;
+
 
 
 
@@ -217,18 +219,6 @@ class OrderController extends Controller
                 $artikel->setVooraad($nieuwevoorraad);
                 $em->flush();
             }
-            //kwaliteit
-            foreach($_POST['kwalitijd'] as $aantal){
-                //array key (artikelnummer) naar var
-                $artikelnummer = key($aantal);
-                //ophalen entity artikel
-                $em = $this->getDoctrine()->getEntityManager();
-                $artikel = $em->getRepository('AppBundle:artikel')->find($artikelnummer);
-                //Update voorraad
-                $artikel->setKwaliteit($aantal[key($aantal)]);
-                $em->flush();
-            }
-
 
             //ontvangstdatum
             $ontvangstdatum = $_POST['datum'];
@@ -244,12 +234,55 @@ class OrderController extends Controller
             $order->setOntvangen(1);
             $em->flush();
 
-            return $this->redirect($this->generateurl("alleordersmagazijn"));
+            return $this->redirect($this->generateurl("orderKwaliteit", array('ordernummer' => $ordernummer)));
         }
         else{
             return new Response('Geen toegang.');
         }
     }
+
+    /**
+     * @Route("/magazijn/order/kwaliteit/{ordernummer}", name="orderKwaliteit")
+     */
+    public function orderKwaliteit($ordernummer){
+        $em = $this->getDoctrine()->getEntityManager();
+        $order = $em->getRepository('AppBundle:orders')->find($ordernummer);
+        $orderdetails = $em->getRepository('AppBundle:orderdetails')->findBy(array('orderId' => $ordernummer));
+
+        foreach ($orderdetails as $orderdetail){
+            $number = $orderdetail->getAantal();
+            for ($x = 0; $x < $number; $x++) {
+                //print_r($orderdetail->getArtikelnummer()->getArtikelnummer()."<br />");
+                $artikelnummers[] = $orderdetail->getArtikelnummer()->getArtikelnummer();
+            }
+        }
+
+        return new Response($this->render('order/order_kwaliteit.html.twig', array('orders' => $artikelnummers,'ordernummer' => $ordernummer, 'order' => $order)));
+    }
+
+    /**
+     * @Route("/magazijn/order/kwaliteit/validation/{ordernummer}", name="orderKwaliteitvalidation")
+     */
+    public function orderkwaltiteitvalidation($ordernummer){
+        //kwaliteit
+        foreach($_POST['kwalitijd'] as $aantal){
+            $kwaliteit = $aantal[key($aantal)];
+            $artnummer = key($aantal);
+
+
+            $order = new ordercontrole();
+            $order->setOrderdetailid($artnummer);
+            $order->setKwaliteit($kwaliteit);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($order);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateurl("alleordersmagazijn"));
+
+    }
+
 
     /**
      * @Route("/order/alle/datum/zoek", name="alleordersdatumzoek")

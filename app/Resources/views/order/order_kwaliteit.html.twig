@@ -8,7 +8,7 @@
         <h2>Order: {{ order.bestelordernummer }}</h2>
     </div>
     <div class="container">
-        <form action="{{ path('controlevalidationbestelling',{'ordernummer':order.id}) }}" method="post">
+        <form action="{{ path('orderKwaliteitvalidation',{'ordernummer':order.id}) }}" method="post">
             <div style="float: left">
                 <p style="margin: 25px;">
                     <b>Leverancier:</b> {{ order.leverancier }}<br />
@@ -21,21 +21,25 @@
                 <thead>
                 <tr>
                     <th>Artikelnummer</th>
-                    <th>Aantal besteld</th>
-                    <th>Aantal ontvangen</th>
+                    <th>Kwaliteit</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% set counter = 0 %}
-                    {% for orderdetail in orderdetails %}
-                        <tr>
-                            <td>{{ orderdetail.artikelnummer.artikelnummer }}</td>
-                            <td>{{ orderdetail.aantal   }}</td>
-                            <td><input name="aantal[{{ counter }}][{{ orderdetail.artikelnummer.artikelnummer }}]" type="number" value="{{ orderdetail.aantal   }}"/> </td>
-
-                        </tr>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order }}</td>
+                        <td>
+                            <select name="kwalitijd[{{ counter }}][{{ order }}]">
+                                <option value="1">Nieuw</option>
+                                <option value="2">Gebruikt </option>
+                                <option value="3">Reparatie nodig</option>
+                                <option value="4">Onbruikbaar</option>
+                            </select>
+                        </td>
                         {% set counter = counter + 1 %}
-                    {% endfor %}
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
             <div style="float: left; margin-left: 25px;">
