@@ -32,7 +32,7 @@
                         <tr>
                             <td>{{ artikel.artikelnummer }}</td>
                             <td>{{ artikel.bestelserie }}</td>
-                            <td>{{ artikel.inkoopprijs }}</td>
+                            <td>&euro; {{ artikel.inkoopprijs }}</td>
                             <td>{{ artikel.minimumVoorraad }}</td>
                             <td>{{ artikel.vooraad }}</td>
                             <td><form action="{{ path('nieuworderOnderVoorraad', {'artikelnummer': artikel.artikelnummer}) }}" method="post"><input type="number" name="aantal"/> <input name="submit" type="submit" class="btn btn-success" value="Bestellen"/></form></td>
