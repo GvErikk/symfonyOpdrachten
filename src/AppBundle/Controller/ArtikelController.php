@@ -350,7 +350,7 @@ class ArtikelController extends Controller
      */
     public function alleFinancieel(Request $request){
         $session = $this->get('session');
-        if ($session->get('rol') == 5) /**nog te veranderen naar rol 5 */ {
+        if ($session->get('rol') == 5)  {
             //alle artikelen omhalen
             $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
 
@@ -372,7 +372,7 @@ class ArtikelController extends Controller
      */
     public function totaleWaarde(Request $request){
         $session = $this->get('session');
-        if ($session->get('rol') == 5) /**nog te veranderen naar rol 5 voor financieel */ {
+        if ($session->get('rol') == 5)  {
             //alle artikelen omhalen
             $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findBy(array('actief' => 1 ));
 
@@ -399,5 +399,5 @@ class ArtikelController extends Controller
             return new Response('Geen toegang.');
         }
     }
-  
+
 }
