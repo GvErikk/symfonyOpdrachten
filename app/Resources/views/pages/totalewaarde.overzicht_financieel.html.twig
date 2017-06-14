@@ -13,14 +13,14 @@
                 <thead>
                 <tr>
                     <th>Producttype</th>
-                    <th>Waarde inkoopprijs per producctype in €</th>
+                    <th>Waarde inkoopprijs per producctype</th>
                 </tr>
                 </thead>
                 <tbody>
                   {% set key = 0 %}
                 {% for artikel in artikelen %}
                         <td>{{ artikel.bestelserie }}</td>
-                      <td>{{aantallen[key].inkoopprijsCount}}</td>
+                      <td>&euro; {{aantallen[key].inkoopprijsCount}}</td>
                     </tr>
                     {% set key = key +1 %}
                 {% endfor %}
